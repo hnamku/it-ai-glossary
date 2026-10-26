@@ -2,6 +2,7 @@ const motionObservers=new Set();
 function clearChapterMotion(){for(const o of motionObservers)o.disconnect();motionObservers.clear()}
 /* 웹과 개발·데이터: 개념을 한 줄로 풀어 주는 설명과 재생/일시정지 버튼 */
 const chapterMotion={
+  83:{caption:"서버를 회사가 직접 사서 자기 건물에 두고 관리합니다. 데이터는 건물 안에 있지만, 처음 비용이 크고 늘리려면 주문·설치 기간이 걸립니다."},
   82:{caption:"CPU 박사는 분기 예측·준비된 명령 먼저 처리·캐시로 복잡한 일을 혼자 융통성 있게 처리하고, GPU 일꾼 수천 명은 곱셈·덧셈을 한꺼번에 해치웁니다."},
   59:{caption:"키로 잠가 암호문으로 바꾸면, 도중에 가로채도 읽을 수 없고 맞는 키로 풀면 원래대로 돌아옵니다."},
   74:{caption:"요약하라고 준 문서 속에 숨은 다른 지시로 AI의 원래 지시를 바꾸려는 공격입니다. 웹페이지·문서도 공격 경로가 됩니다."},
