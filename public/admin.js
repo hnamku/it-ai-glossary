@@ -1,0 +1,42 @@
+const $=id=>document.getElementById(id);let terms=[],categories=[],revision=0,editing=null,setup=false;const setupKey=new URLSearchParams(location.hash.slice(1)).get('setup');if(setupKey)history.replaceState(null,'',location.pathname);async function api(op,body){const r=await fetch('/api?op='+op,body?{method:'POST',headers:{'Content-Type':'application/json','X-Malteut-Admin':'1'},body:JSON.stringify(body)}:{});const j=await r.json();if(!r.ok)throw Error(j.error||'요청하지 못했습니다.');return j}function message(t){$('message').textContent=t}async function start(){try{const s=await api('status');$('auth').hidden=s.authenticated;$('editor').hidden=!s.authenticated;if(s.authenticated){await reload();return}setup=!s.configured;$('authTitle').textContent=setup?'관리자 비밀번호 설정':'관리자 로그인';$('authHelp').textContent=setup?'10자 이상의 비밀번호를 설정하세요. 첫 설정에는 전용 초기 설정 링크가 필요합니다.':'설정한 비밀번호로 로그인해 용어를 관리하세요.';$('password').autocomplete=setup?'new-password':'current-password';$('password').minLength=setup?10:1;$('confirmWrap').hidden=!setup;$('confirm').required=setup;$('authSubmit').textContent=setup?'비밀번호 설정':'로그인';if(setup&&!setupKey){$('authSubmit').disabled=true;message('초기 비밀번호 설정은 전달받은 전용 링크에서 진행해 주세요.')}}catch(e){message(e.message)}}async function reload(){const j=await api('terms');terms=j.terms;categories=j.categories;revision=j.revision;render()}function render(){const q=$('search').value.trim().toLowerCase();const list=categories.flatMap(c=>terms.filter(t=>t.categoryId===c.id)).filter(t=>(t.term+' '+t.definition).toLowerCase().includes(q));$('count').textContent=list.length+'개 용어';$('grid').replaceChildren();if(!list.length){const empty=document.createElement('p');empty.className='empty';empty.textContent=terms.length?'검색 결과가 없습니다.':'등록된 용어가 없습니다. 용어를 추가해 주세요.';$('grid').append(empty)}for(const t of list){const c=document.createElement('article');c.className='card';const cat=document.createElement('span');cat.className='category';cat.textContent=t.category;const h=document.createElement('h2');h.textContent=t.term;const p=document.createElement('p');p.textContent=t.definition;const b=document.createElement('button');b.className='secondary';b.textContent='수정';b.style.marginTop='18px';b.onclick=()=>open(t);const remove=document.createElement('button');remove.className='secondary danger';remove.textContent='삭제';remove.setAttribute('aria-label',t.term+' 삭제');remove.onclick=()=>deleteTerm(t,remove);const actions=document.createElement('div');actions.className='actions';b.style.marginTop='0';actions.append(b,remove);
+const siblings=terms.filter(x=>x.categoryId===t.categoryId),position=siblings.findIndex(x=>x.id===t.id);
+for(const [label,direction] of [['↑ 위로',-1],['↓ 아래로',1]]){const move=document.createElement('button');move.type='button';move.className='secondary';move.textContent=label;move.setAttribute('aria-label',t.term+' '+label);move.disabled=position+direction<0||position+direction>=siblings.length;move.onclick=()=>moveTerm(t,direction);actions.append(move)}c.append(cat,h,p,actions);$('grid').append(c)}}function open(t){editing=t?.id||null;$('termTitle').textContent=t?'용어 수정':'용어 추가';$('term').value=t?.term||'';$('definition').value=t?.definition||'';$('category').replaceChildren(...categories.map(c=>{const o=document.createElement('option');o.value=c.id;o.textContent=c.title;return o}));$('category').value=t?.categoryId||categories[0]?.id||'';$('termMessage').textContent='';$('termDialog').showModal();$('term').focus()}$('authForm').onsubmit=async e=>{e.preventDefault();if(setup&&$('password').value!==$('confirm').value){message('비밀번호 확인이 일치하지 않습니다.');return}$('authSubmit').disabled=true;try{await api(setup?'setup':'login',{password:$('password').value,setupKey});$('authForm').reset();message('로그인했습니다.');await start()}catch(e){message(e.message)}finally{$('authSubmit').disabled=false}};$('add').onclick=()=>open();$('cancel').onclick=()=>$('termDialog').close();$('search').oninput=render;$('termForm').onsubmit=async e=>{e.preventDefault();$('save').disabled=true;try{const j=await api('save',{id:editing,term:$('term').value,definition:$('definition').value,categoryId:$('category').value,revision});terms=j.terms;categories=j.categories;revision=j.revision;render();$('termDialog').close();message('저장했습니다. 홈페이지에 바로 반영됩니다.')}catch(e){$('termMessage').textContent=e.message}finally{$('save').disabled=false}};$('logout').onclick=async()=>{try{await api('logout',{});message('로그아웃했습니다.');await start()}catch(e){message(e.message)}};$('refresh').onclick=async()=>{try{await reload();message('최신 목록을 불러왔습니다.')}catch(e){message(e.message)}};$('export').onclick=()=>{const u=URL.createObjectURL(new Blob([JSON.stringify({terms,categories},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=u;a.download='말뜻-용어집-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)};$('changePassword').onclick=()=>{$('passwordForm').reset();$('passwordMessage').textContent='';$('passwordDialog').showModal()};$('cancelPassword').onclick=()=>$('passwordDialog').close();$('passwordForm').onsubmit=async e=>{e.preventDefault();if($('newPassword').value!==$('newConfirm').value){$('passwordMessage').textContent='새 비밀번호 확인이 일치하지 않습니다.';return}const button=e.submitter;button.disabled=true;try{await api('password',{currentPassword:$('current').value,password:$('newPassword').value});$('passwordForm').reset();$('passwordDialog').close();message('비밀번호를 변경했습니다. 기존의 다른 로그인 세션은 만료됩니다.')}catch(e){$('passwordMessage').textContent=e.message}finally{button.disabled=false}};start();
+
+async function deleteTerm(t,button){
+ if(!window.confirm('“'+t.term+'” 용어를 삭제할까요?\n삭제하면 홈페이지 목록에서도 사라집니다.'))return;
+ button.disabled=true;
+ try{const j=await api('delete',{id:t.id,revision});terms=j.terms;categories=j.categories;revision=j.revision;render();message('“'+t.term+'” 용어를 삭제했습니다. 홈페이지에도 반영됩니다.')}
+ catch(e){message(e.message);button.disabled=false}
+}
+
+let categoryDraft=[];
+function renderCategoryRows(){
+ $('categoryRows').replaceChildren();
+ categoryDraft.forEach((c,i)=>{
+  const row=document.createElement('fieldset');row.className='category-editor-row';
+  const legend=document.createElement('legend');legend.textContent=(i+1)+'번째 분야 · '+terms.filter(t=>t.categoryId===c.id).length+'개 용어';row.append(legend);
+  for(const [key,label,max] of [['title','분야 이름',40],['description','분야 설명',200]]){
+   const l=document.createElement('label');l.textContent=label;const input=document.createElement('input');input.value=c[key];input.maxLength=max;input.required=key==='title';input.oninput=()=>c[key]=input.value;l.append(input);row.append(l);
+  }
+  const actions=document.createElement('div');actions.className='actions';
+  for(const [label,delta] of [['위로',-1],['아래로',1]]){
+   const b=document.createElement('button');b.type='button';b.className='secondary';b.textContent=label;b.disabled=i+delta<0||i+delta>=categoryDraft.length;b.onclick=()=>{[categoryDraft[i],categoryDraft[i+delta]]=[categoryDraft[i+delta],categoryDraft[i]];renderCategoryRows()};actions.append(b);
+  }
+  const remove=document.createElement('button');remove.type='button';remove.className='secondary danger';remove.textContent='삭제';remove.disabled=categoryDraft.length===1||terms.some(t=>t.categoryId===c.id);remove.onclick=()=>{categoryDraft.splice(i,1);renderCategoryRows()};actions.append(remove);row.append(actions);$('categoryRows').append(row);
+ });
+}
+$('manageCategories').onclick=()=>{categoryDraft=categories.map(c=>({...c}));$('categoriesMessage').textContent='';renderCategoryRows();$('categoriesDialog').showModal()};
+$('cancelCategories').onclick=()=>$('categoriesDialog').close();
+$('addCategory').onclick=()=>{categoryDraft.push({id:'category-'+crypto.randomUUID(),title:'',description:''});renderCategoryRows()};
+$('categoriesForm').onsubmit=async e=>{
+ e.preventDefault();$('saveCategories').disabled=true;
+ try{const j=await api('categories',{categories:categoryDraft,revision});terms=j.terms;categories=j.categories;revision=j.revision;render();$('categoriesDialog').close();message('분야를 저장했습니다. 홈페이지와 용어 선택 목록에 반영됩니다.')}
+ catch(e){$('categoriesMessage').textContent=e.message}finally{$('saveCategories').disabled=false}
+};
+
+let moving=false;
+async function moveTerm(t,direction){
+ if(moving)return;moving=true;
+ try{const j=await api('move',{id:t.id,direction,revision});terms=j.terms;categories=j.categories;revision=j.revision;render();message('“'+t.term+'”의 분야 내 표시 순서를 변경했습니다.')}
+ catch(e){message(e.message)}finally{moving=false}
+}
