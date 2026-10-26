@@ -762,3 +762,13 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c75-t2{animation:c75-t2 7s infinite ease-in-out;}@keyframes c75-t2{0%,70%{opacity:0;transform:scale(.3)}73%{opacity:1;transform:scale(1.18)}75%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c75-t3{animation:c75-t3 7s infinite ease-in-out;}@keyframes c75-t3{0%,72%{opacity:0;transform:scale(.3)}75%{opacity:1;transform:scale(1.18)}77%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c75-note{animation:c75-note 7s infinite ease-in-out;}@keyframes c75-note{0%,76%{opacity:0}79%,100%{opacity:1}}
+
+/* chapter 9 — computer concept motion */
+.mp svg .c82-pred{animation:c82-pred 7s infinite ease-in-out;}@keyframes c82-pred{0%,30%{opacity:0}33%,100%{opacity:1}}
+.mp svg .c82-predl{animation:c82-predl 7s infinite ease-in-out;}@keyframes c82-predl{0%,30%{opacity:0}33%,100%{opacity:1}}
+.mp svg .c82-t1{animation:c82-t1 7s infinite ease-in-out;}@keyframes c82-t1{0%,36%{transform:translateX(0)}46%,100%{transform:translateX(40px)}}
+.mp svg .c82-t2{animation:c82-t2 7s infinite ease-in-out;}@keyframes c82-t2{0%,36%{transform:translateX(0)}46%,100%{transform:translateX(-40px)}}
+.mp svg .c82-ool{animation:c82-ool 7s infinite ease-in-out;}@keyframes c82-ool{0%,46%{opacity:0}49%,100%{opacity:1}}
+.mp svg .c82-x0{animation:c82-x0 7s infinite linear;}@keyframes c82-x0{0%,28%{opacity:0}30%,36%{opacity:1}39%,43%{opacity:.15}46%,52%{opacity:1}55%,59%{opacity:.15}62%,70%{opacity:1}74%,100%{opacity:.15}}
+.mp svg .c82-x1{animation:c82-x1 7s infinite linear;}@keyframes c82-x1{0%,28%{opacity:0}33%,39%{opacity:1}42%,46%{opacity:.15}49%,55%{opacity:1}58%,62%{opacity:.15}65%,73%{opacity:1}77%,100%{opacity:.15}}
+.mp svg .c82-cnt{animation:c82-cnt 7s infinite linear;transform-origin:left center}@keyframes c82-cnt{0%,30%{transform:scaleX(0)}74%,100%{transform:scaleX(1)}}

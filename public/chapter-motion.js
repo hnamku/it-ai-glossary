@@ -2,6 +2,7 @@ const motionObservers=new Set();
 function clearChapterMotion(){for(const o of motionObservers)o.disconnect();motionObservers.clear()}
 /* 웹과 개발·데이터: 개념을 한 줄로 풀어 주는 설명과 재생/일시정지 버튼 */
 const chapterMotion={
+  82:{caption:"CPU 박사는 분기 예측·순서 바꾸기·캐시로 복잡한 일을 혼자 융통성 있게 처리하고, GPU 일꾼 수천 명은 곱셈·덧셈을 한꺼번에 해치웁니다."},
   59:{caption:"키로 잠가 암호문으로 바꾸면, 도중에 가로채도 읽을 수 없고 맞는 키로 풀면 원래대로 돌아옵니다."},
   74:{caption:"요약하라고 준 문서 속에 숨은 다른 지시로 AI의 원래 지시를 바꾸려는 공격입니다. 웹페이지·문서도 공격 경로가 됩니다."},
   75:{caption:"들어오는 요청, 나가는 답, 쓰는 도구마다 검사하고 제한합니다. 그래도 완벽한 안전을 보장하지는 않습니다."},
