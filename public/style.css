@@ -691,3 +691,49 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c65-t2{animation:c65-t2 7s infinite ease-in-out;}@keyframes c65-t2{0%,66%{opacity:0;transform:scale(.3)}69%{opacity:1;transform:scale(1.18)}71%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c65-t3{animation:c65-t3 7s infinite ease-in-out;}@keyframes c65-t3{0%,70%{opacity:0;transform:scale(.3)}73%{opacity:1;transform:scale(1.18)}75%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c65-ft{animation:c65-ft 7s infinite ease-in-out;}@keyframes c65-ft{0%,74%{opacity:0}77%,100%{opacity:1}}
+
+/* chapter 7 — AI training & operations concept motion */
+.mp svg .c67-a{animation:c67-a 7s infinite ease-in-out;}@keyframes c67-a{0%,24%{transform:translate(0px,0px) scale(1);opacity:0}26%{transform:translate(0px,0px) scale(1);opacity:1}32%{transform:translate(58px,0px) scale(1);opacity:1}38%{transform:translate(116px,0px) scale(1);opacity:1}44%{transform:translate(116px,58px) scale(1);opacity:1}48%{transform:translate(116px,58px) scale(1);opacity:1}50%{transform:translate(0px,0px) scale(1);opacity:0}52%{transform:translate(0px,0px) scale(1);opacity:1}57%{transform:translate(0px,58px) scale(1);opacity:1}62%{transform:translate(0px,116px) scale(1);opacity:1}67%{transform:translate(58px,116px) scale(1);opacity:1}72%{transform:translate(116px,116px) scale(1);opacity:1}77%{transform:translate(174px,116px) scale(1);opacity:1}100%{transform:translate(174px,116px) scale(1);opacity:1}}
+.mp svg .c67-m{animation:c67-m 7s infinite ease-in-out;}@keyframes c67-m{0%,44%{opacity:0}46%,50%{opacity:1}53%,100%{opacity:0}}
+.mp svg .c67-s1{animation:c67-s1 7s infinite ease-in-out;}@keyframes c67-s1{0%,44%{opacity:0}46%,74%{opacity:1}77%,100%{opacity:0}}
+.mp svg .c67-p{animation:c67-p 7s infinite ease-in-out;}@keyframes c67-p{0%,77%{opacity:0;transform:scale(.3)}80%{opacity:1;transform:scale(1.18)}82%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c67-s2{animation:c67-s2 7s infinite ease-in-out;}@keyframes c67-s2{0%,78%{opacity:0;transform:scale(.3)}81%{opacity:1;transform:scale(1.18)}83%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c67-path{animation:c67-path 7s infinite ease-in-out;}@keyframes c67-path{0%,82%{opacity:0}85%,100%{opacity:1}}
+.mp svg .c67-note{animation:c67-note 7s infinite ease-in-out;}@keyframes c67-note{0%,82%{opacity:0}85%,100%{opacity:1}}
+.mp svg .c68-pick{animation:c68-pick 7s infinite ease-in-out;}@keyframes c68-pick{0%,32%{opacity:0;transform:scale(.3)}35%{opacity:1;transform:scale(1.18)}37%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68-pref{animation:c68-pref 7s infinite ease-in-out;}@keyframes c68-pref{0%,38%{transform:translate(0px,-20px) scale(1);opacity:0}40%{transform:translate(0px,0px) scale(1);opacity:1}48%{transform:translate(30px,60px) scale(0.6);opacity:1}50%{transform:translate(30px,60px) scale(0.6);opacity:0}100%{transform:translate(30px,60px) scale(1);opacity:0}}
+.mp svg .c68-score{animation:c68-score 7s infinite ease-in-out;}@keyframes c68-score{0%,52%{transform:translate(110px,0px) scale(1);opacity:0}54%{transform:translate(110px,0px) scale(1);opacity:1}62%{transform:translate(0px,0px) scale(1);opacity:1}68%{transform:translate(-70px,-40px) scale(0.5);opacity:1}70%{transform:translate(-70px,-40px) scale(0.5);opacity:0}100%{transform:translate(-70px,-40px) scale(1);opacity:0}}
+.mp svg .c68-knob{animation:c68-knob 7s infinite ease-in-out;}@keyframes c68-knob{0%,68%{transform:rotate(0)}78%,100%{transform:rotate(70deg)}}
+.mp svg .c68-note{animation:c68-note 7s infinite ease-in-out;}@keyframes c68-note{0%,72%{opacity:0}75%,100%{opacity:1}}
+.mp svg .c70-fly{animation:c70-fly 7s infinite ease-in-out;}@keyframes c70-fly{0%,34%{transform:translate(0px,0px) scale(1);opacity:0}36%{transform:translate(0px,0px) scale(1);opacity:1}48%{transform:translate(110px,30px) scale(0.6);opacity:1}50%{transform:translate(110px,30px) scale(0.6);opacity:0}100%{transform:translate(110px,30px) scale(1);opacity:0}}
+.mp svg .c70-s0{animation:c70-s0 7s infinite ease-out;transform-origin:center bottom}@keyframes c70-s0{0%,48%{transform:scaleY(0)}58%,100%{transform:scaleY(0.89)}}
+.mp svg .c70-s1{animation:c70-s1 7s infinite ease-out;transform-origin:center bottom}@keyframes c70-s1{0%,48%{transform:scaleY(0)}61%,100%{transform:scaleY(1.17)}}
+.mp svg .c70-s2{animation:c70-s2 7s infinite ease-out;transform-origin:center bottom}@keyframes c70-s2{0%,48%{transform:scaleY(0)}64%,100%{transform:scaleY(1.50)}}
+.mp svg .c70-cost{animation:c70-cost 7s infinite ease-in-out;}@keyframes c70-cost{0%,66%{opacity:0}69%,100%{opacity:1}}
+.mp svg .c70-note{animation:c70-note 7s infinite ease-in-out;}@keyframes c70-note{0%,70%{opacity:0}73%,100%{opacity:1}}
+.mp svg .c71-r8{animation:c71-r8 7s infinite ease-in-out;}@keyframes c71-r8{0%,34%{opacity:0}37%,100%{opacity:1}}
+.mp svg .c71-sq{animation:c71-sq 7s infinite ease-in-out;}@keyframes c71-sq{0%,32%{opacity:0}35%,100%{opacity:1}}
+.mp svg .c71-r4{animation:c71-r4 7s infinite ease-in-out;}@keyframes c71-r4{0%,52%{opacity:0}55%,100%{opacity:1}}
+.mp svg .c71-mem{animation:c71-mem 7s infinite ease-in-out;transform-origin:center bottom}@keyframes c71-mem{0%,34%{transform:scaleY(1)}44%{transform:scaleY(.25)}52%{transform:scaleY(.25)}62%,100%{transform:scaleY(.13)}}
+.mp svg .c71-acc{animation:c71-acc 7s infinite ease-in-out;}@keyframes c71-acc{0%,64%{opacity:0}67%,100%{opacity:1}}
+.mp svg .c72-c0{animation:c72-c0 7s infinite linear;}@keyframes c72-c0{0%{opacity:0}30%{opacity:0}32%{opacity:1}35%{opacity:0}54%{opacity:0}56%{opacity:1}59%,100%{opacity:0}}
+.mp svg .c72-c1{animation:c72-c1 7s infinite linear;}@keyframes c72-c1{0%{opacity:0}36%{opacity:0}38%{opacity:1}41%{opacity:0}60%{opacity:0}62%{opacity:1}65%,100%{opacity:0}}
+.mp svg .c72-c2{animation:c72-c2 7s infinite linear;}@keyframes c72-c2{0%{opacity:0}42%{opacity:0}44%{opacity:1}47%{opacity:0}66%{opacity:0}68%{opacity:1}71%,100%{opacity:0}}
+.mp svg .c72-c3{animation:c72-c3 7s infinite linear;}@keyframes c72-c3{0%{opacity:0}48%{opacity:0}50%{opacity:1}53%{opacity:0}72%{opacity:0}74%{opacity:1}77%,100%{opacity:0}}
+.mp svg .c72-g{animation:c72-g 7s infinite linear;}@keyframes c72-g{0%,30%{opacity:0}32%,38%{opacity:1}40%,46%{opacity:0}48%,54%{opacity:1}56%,62%{opacity:0}64%,70%{opacity:1}72%,100%{opacity:0}}
+.mp svg .c72-pc{animation:c72-pc 7s infinite linear;transform-origin:left center}@keyframes c72-pc{0%,30%{transform:scaleX(0)}84%,100%{transform:scaleX(.55)}}
+.mp svg .c72-pg{animation:c72-pg 7s infinite linear;transform-origin:left center}@keyframes c72-pg{0%,30%{transform:scaleX(0)}46%,100%{transform:scaleX(1)}}
+.mp svg .c72-done{animation:c72-done 7s infinite ease-in-out;}@keyframes c72-done{0%,47%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.18)}52%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c73-orb{animation:c73o 3.5s linear infinite;transform-origin:130px 128px;transform-box:view-box}@keyframes c73o{to{transform:rotate(360deg)}}
+.mp svg .c73-ln{animation:c73-ln 7s infinite linear;}@keyframes c73-ln{0%,26%{stroke-dasharray:1;stroke-dashoffset:1}52%,100%{stroke-dasharray:1;stroke-dashoffset:0}}
+.mp svg .c73-alert{animation:c73-alert 7s infinite ease-in-out;}@keyframes c73-alert{0%,52%{opacity:0;transform:scale(.3)}55%{opacity:1;transform:scale(1.18)}57%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c73-v1{animation:c73-v1 7s infinite ease-in-out;}@keyframes c73-v1{0%,26%{opacity:0}30%,58%{opacity:1}62%,100%{opacity:0}}
+.mp svg .c73-v2{animation:c73-v2 7s infinite ease-in-out;}@keyframes c73-v2{0%,62%{opacity:0;transform:scale(.3)}65%{opacity:1;transform:scale(1.18)}67%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c73-rt{animation:c73-rt 7s infinite ease-in-out;}@keyframes c73-rt{0%,60%{opacity:0;transform:scale(.3)}63%{opacity:1;transform:scale(1.18)}65%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c77-res{animation:c77-res 7s infinite ease-in-out;}@keyframes c77-res{0%,44%{opacity:0}47%,100%{opacity:1}}
+.mp svg .c77-fast{animation:c77-fast 7s infinite ease-in-out;}@keyframes c77-fast{0%,48%{opacity:0}51%,100%{opacity:1}}
+.mp svg .c77-no{animation:c77-no 7s infinite ease-in-out;}@keyframes c77-no{0%,54%{opacity:0}57%,100%{opacity:1}}
+.mp svg .c77-priv{animation:c77-priv 7s infinite ease-in-out;}@keyframes c77-priv{0%,58%{opacity:0}61%,100%{opacity:1}}
+.mp svg .c77-bat{animation:c77-bat 7s infinite linear;transform-origin:left center}@keyframes c77-bat{0%,36%{transform:scaleX(1)}70%,100%{transform:scaleX(.55)}}
+.mp svg .c77-opt{animation:c77-opt 7s infinite ease-in-out;}@keyframes c77-opt{0%,72%{opacity:0}75%,100%{opacity:1}}
+.mp svg .c77-scan{animation:c77-scan 7s infinite linear;}@keyframes c77-scan{0%,28%{opacity:0;transform:translateY(0)}30%{opacity:1;transform:translateY(0)}42%{opacity:1;transform:translateY(36px)}44%,100%{opacity:0;transform:translateY(36px)}}
