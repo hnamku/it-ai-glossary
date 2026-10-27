@@ -783,3 +783,29 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c83-w3{animation:c83-w3 7s infinite ease-in-out;}@keyframes c83-w3{0%,69%{opacity:0}71%,100%{opacity:1}}
 .mp svg .c83-more{animation:c83-more 7s infinite ease-in-out;}@keyframes c83-more{0%,60%{opacity:0}63%,100%{opacity:1}}
 .mp svg .c83-new{animation:c83-new 7s infinite ease-in-out;}@keyframes c83-new{0%,74%{opacity:0;transform:scale(.4)}78%,100%{opacity:1;transform:scale(1)}}
+
+/* HTTP request/response redraw, responsive website, OAuth concept motion */
+.mp svg .c11-l1{animation:c11-l1 7s infinite ease-in-out;}@keyframes c11-l1{0%,26%{opacity:0}29%,100%{opacity:1}}
+.mp svg .c11-req{animation:c11-req 7s infinite ease-in-out;}@keyframes c11-req{0%,28%{transform:translate(0px,0px) scale(1);opacity:0}30%{transform:translate(0px,0px) scale(1);opacity:1}40%{transform:translate(60px,0px) scale(1);opacity:1}42%{transform:translate(60px,0px) scale(1);opacity:0}100%{transform:translate(60px,0px) scale(1);opacity:0}}
+.mp svg .c11-led{opacity:0;animation:c11-led 7s infinite}@keyframes c11-led{0%{opacity:0}42%{opacity:0}43.5%{opacity:1}48.5%{opacity:1}50%{opacity:0}100%{opacity:0}}
+.mp svg .c11-l2{animation:c11-l2 7s infinite ease-in-out;}@keyframes c11-l2{0%,50%{opacity:0}53%,100%{opacity:1}}
+.mp svg .c11-res{animation:c11-res 7s infinite ease-in-out;}@keyframes c11-res{0%,50%{transform:translate(0px,0px) scale(1);opacity:0}52%{transform:translate(0px,0px) scale(1);opacity:1}62%{transform:translate(-58px,0px) scale(1);opacity:1}64%{transform:translate(-58px,0px) scale(1);opacity:0}100%{transform:translate(-58px,0px) scale(1);opacity:0}}
+.mp svg .c11-page{animation:c11-page 7s infinite ease-in-out;}@keyframes c11-page{0%,64%{opacity:0}67%,100%{opacity:1}}
+.mp svg .c11-s{animation:c11-s 7s infinite ease-in-out;}@keyframes c11-s{0%,74%{opacity:0}77%,100%{opacity:1}}
+.mp svg .c85-d{animation:c85-d 7s infinite ease-in-out;}@keyframes c85-d{0%,22%{opacity:0;transform:scale(.9)}26%,42%{opacity:1;transform:scale(1)}46%,100%{opacity:0;transform:scale(.6,.9)}}
+.mp svg .c85-t{animation:c85-t 7s infinite ease-in-out;}@keyframes c85-t{0%,44%{opacity:0;transform:scale(1.3,1)}48%,62%{opacity:1;transform:scale(1)}66%,100%{opacity:0;transform:scale(.6,1)}}
+.mp svg .c85-p{animation:c85-p 7s infinite ease-in-out;}@keyframes c85-p{0%,64%{opacity:0;transform:scale(1.6,1)}68%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c85-l1{animation:c85-l1 7s infinite ease-in-out;}@keyframes c85-l1{0%,24%{opacity:0}26%,42%{opacity:1}46%,100%{opacity:0}}
+.mp svg .c85-l2{animation:c85-l2 7s infinite ease-in-out;}@keyframes c85-l2{0%,46%{opacity:0}48%,62%{opacity:1}66%,100%{opacity:0}}
+.mp svg .c85-l3{animation:c85-l3 7s infinite ease-in-out;}@keyframes c85-l3{0%,66%{opacity:0}68%,100%{opacity:1}}
+.mp svg .c85-menu{animation:c85-menu 7s infinite ease-in-out;}@keyframes c85-menu{0%,70%{opacity:0}73%,100%{opacity:1}}
+.mp svg .c85-note{animation:c85-note 7s infinite ease-in-out;}@keyframes c85-note{0%,74%{opacity:0}77%,100%{opacity:1}}
+.mp svg .c86-btn{animation:c86-btn 7s infinite ease-in-out;}@keyframes c86-btn{0%,24%{opacity:0}27%,100%{opacity:1}}
+.mp svg .c86-arr{animation:c86-arr 7s infinite ease-in-out;}@keyframes c86-arr{0%,30%{opacity:0}33%,100%{opacity:1}}
+.mp svg .c86-tap{animation:c86-tap 7s infinite ease-in-out;}@keyframes c86-tap{0%,40%{opacity:0;transform:scale(.3)}43%{opacity:1;transform:scale(1.18)}45%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c86-tap{animation:c86-tap 7s infinite ease-in-out;}@keyframes c86-tap{0%,38%{opacity:0;transform:scale(.3)}41%{opacity:1;transform:scale(1)}46%,100%{opacity:0;transform:scale(1.6)}}
+.mp svg .c86-ok{animation:c86-ok 7s infinite ease-in-out;}@keyframes c86-ok{0%,41%{opacity:0}44%,100%{opacity:1}}
+.mp svg .c86-tok{animation:c86-tok 7s infinite ease-in-out;}@keyframes c86-tok{0%,46%{transform:translate(0px,0px) scale(1);opacity:0}48%{transform:translate(0px,0px) scale(1);opacity:1}56%{transform:translate(-138px,0px) scale(1);opacity:1}60%{transform:translate(-138px,0px) scale(1);opacity:1}68%{transform:translate(150px,0px) scale(1);opacity:1}70%{transform:translate(150px,0px) scale(1);opacity:0}100%{transform:translate(150px,0px) scale(1);opacity:0}}
+.mp svg .c86-data{animation:c86-data 7s infinite ease-in-out;}@keyframes c86-data{0%,70%{transform:translate(0px,0px) scale(1);opacity:0}72%{transform:translate(0px,0px) scale(1);opacity:1}80%{transform:translate(-282px,-78px) scale(1);opacity:1}82%{transform:translate(-282px,-78px) scale(1);opacity:0}100%{transform:translate(-282px,-78px) scale(1);opacity:0}}
+.mp svg .c86-x{animation:c86-x 7s infinite ease-in-out;}@keyframes c86-x{0%,80%{opacity:0;transform:scale(.3)}83%{opacity:1;transform:scale(1.18)}85%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c86-note{animation:c86-note 7s infinite ease-in-out;}@keyframes c86-note{0%,82%{opacity:0}85%,100%{opacity:1}}
