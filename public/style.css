@@ -809,3 +809,16 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c86-data{animation:c86-data 7s infinite ease-in-out;}@keyframes c86-data{0%,70%{transform:translate(0px,0px) scale(1);opacity:0}72%{transform:translate(0px,0px) scale(1);opacity:1}80%{transform:translate(-282px,-78px) scale(1);opacity:1}82%{transform:translate(-282px,-78px) scale(1);opacity:0}100%{transform:translate(-282px,-78px) scale(1);opacity:0}}
 .mp svg .c86-x{animation:c86-x 7s infinite ease-in-out;}@keyframes c86-x{0%,80%{opacity:0;transform:scale(.3)}83%{opacity:1;transform:scale(1.18)}85%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c86-note{animation:c86-note 7s infinite ease-in-out;}@keyframes c86-note{0%,82%{opacity:0}85%,100%{opacity:1}}
+
+/* harness concept motion */
+.mp svg .c84-goal{animation:c84-goal 7s infinite ease-in-out;}@keyframes c84-goal{0%,22%{transform:translate(0px,0px) scale(1);opacity:0}24%{transform:translate(0px,0px) scale(1);opacity:1}30%{transform:translate(0px,0px) scale(1);opacity:1}36%{transform:translate(160px,-8px) scale(0.5);opacity:1}38%{transform:translate(160px,-8px) scale(0.5);opacity:0}100%{transform:translate(160px,-8px) scale(1);opacity:0}}
+.mp svg .c84-ctx{animation:c84-ctx 7s infinite ease-in-out;}@keyframes c84-ctx{0%,34%{transform:translate(0px,0px) scale(1);opacity:0}36%{transform:translate(0px,0px) scale(1);opacity:1}42%{transform:translate(60px,48px) scale(0.5);opacity:1}44%{transform:translate(60px,48px) scale(0.5);opacity:0}100%{transform:translate(60px,48px) scale(1);opacity:0}}
+.mp svg .c84-req{animation:c84-req 7s infinite ease-in-out;}@keyframes c84-req{0%,44%{transform:translate(0px,0px) scale(1);opacity:0}46%{transform:translate(0px,0px) scale(1);opacity:1}52%{transform:translate(104px,26px) scale(0.7);opacity:1}54%{transform:translate(104px,26px) scale(0.7);opacity:0}100%{transform:translate(104px,26px) scale(1);opacity:0}}
+.mp svg .c84-h1{opacity:0;animation:c84-h1 7s infinite}@keyframes c84-h1{0%{opacity:0}52%{opacity:0}53.5%{opacity:1}56.5%{opacity:1}58%{opacity:0}100%{opacity:0}}
+.mp svg .c84-res{animation:c84-res 7s infinite ease-in-out;}@keyframes c84-res{0%,56%{transform:translate(0px,0px) scale(1);opacity:0}58%{transform:translate(0px,0px) scale(1);opacity:1}64%{transform:translate(-132px,0px) scale(1);opacity:1}66%{transform:translate(-132px,0px) scale(1);opacity:0}100%{transform:translate(-132px,0px) scale(1);opacity:0}}
+.mp svg .c84-h2{opacity:0;animation:c84-h2 7s infinite}@keyframes c84-h2{0%{opacity:0}66%{opacity:0}67.5%{opacity:1}70.5%{opacity:1}72%{opacity:0}100%{opacity:0}}
+.mp svg .c84-n1{animation:c84-n1 7s infinite ease-in-out;}@keyframes c84-n1{0%,36%{opacity:0}38%,52%{opacity:1}54%,100%{opacity:0}}
+.mp svg .c84-n2{animation:c84-n2 7s infinite ease-in-out;}@keyframes c84-n2{0%,54%{opacity:0}56%,66%{opacity:1}68%,100%{opacity:0}}
+.mp svg .c84-n3{animation:c84-n3 7s infinite ease-in-out;}@keyframes c84-n3{0%,68%{opacity:0}70%,100%{opacity:1}}
+.mp svg .c84-done{animation:c84-done 7s infinite ease-in-out;}@keyframes c84-done{0%,76%{opacity:0;transform:scale(.3)}79%{opacity:1;transform:scale(1.18)}81%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c84-ring{animation:c84r 3s linear infinite;transform-origin:190px 128px;transform-box:view-box}@keyframes c84r{to{transform:rotate(360deg)}}

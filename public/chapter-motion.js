@@ -2,6 +2,7 @@ const motionObservers=new Set();
 function clearChapterMotion(){for(const o of motionObservers)o.disconnect();motionObservers.clear()}
 /* 웹과 개발·데이터: 개념을 한 줄로 풀어 주는 설명과 재생/일시정지 버튼 */
 const chapterMotion={
+  84:{caption:"하네스가 모델에 자료를 넣어 주고, 모델이 요청한 도구를 대신 실행해 결과를 돌려주며, 일이 끝날 때까지 반복합니다."},
   85:{caption:"같은 사이트가 PC·태블릿·스마트폰 화면에 맞춰 배치를 스스로 바꿉니다. 주소와 내용은 그대로입니다."},
   86:{caption:"'Google로 연결'을 허용하면 앱은 비밀번호 대신 '캘린더 읽기만' 가능한 토큰을 받아 일정을 가져옵니다."},
   83:{caption:"서버를 회사가 직접 사서 자기 건물에 두고 관리합니다. 데이터는 건물 안에 있지만, 처음 비용이 크고 늘리려면 주문·설치 기간이 걸립니다."},
