@@ -822,3 +822,20 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c84-n3{animation:c84-n3 7s infinite ease-in-out;}@keyframes c84-n3{0%,68%{opacity:0}70%,100%{opacity:1}}
 .mp svg .c84-done{animation:c84-done 7s infinite ease-in-out;}@keyframes c84-done{0%,76%{opacity:0;transform:scale(.3)}79%{opacity:1;transform:scale(1.18)}81%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c84-ring{animation:c84r 3s linear infinite;transform-origin:190px 128px;transform-box:view-box}@keyframes c84r{to{transform:rotate(360deg)}}
+
+/* RAG redraw with embedding vectors */
+.mp svg .c36-r0{animation:c36-r0 7s infinite ease-in-out;}@keyframes c36-r0{0%,28%{opacity:0}31%,100%{opacity:1}}
+.mp svg .c36-s0{animation:c36-s0 7s infinite ease-in-out;}@keyframes c36-s0{0%,54%{opacity:0}57%,100%{opacity:1}}
+.mp svg .c36-r1{animation:c36-r1 7s infinite ease-in-out;}@keyframes c36-r1{0%,32%{opacity:0}35%,100%{opacity:1}}
+.mp svg .c36-s1{animation:c36-s1 7s infinite ease-in-out;}@keyframes c36-s1{0%,56%{opacity:0}59%,100%{opacity:1}}
+.mp svg .c36-r2{animation:c36-r2 7s infinite ease-in-out;}@keyframes c36-r2{0%,36%{opacity:0}39%,100%{opacity:1}}
+.mp svg .c36-s2{animation:c36-s2 7s infinite ease-in-out;}@keyframes c36-s2{0%,58%{opacity:0}61%,100%{opacity:1}}
+.mp svg .c36-pre{animation:c36-pre 7s infinite ease-in-out;}@keyframes c36-pre{0%,26%{opacity:0}29%,100%{opacity:1}}
+.mp svg .c36-qa{animation:c36-qa 7s infinite ease-in-out;}@keyframes c36-qa{0%,38%{opacity:0}41%,100%{opacity:1}}
+.mp svg .c36-qv{animation:c36-qv 7s infinite ease-in-out;}@keyframes c36-qv{0%,40%{opacity:0}43%,100%{opacity:1}}
+.mp svg .c36-fly{animation:c36-fly 7s infinite ease-in-out;}@keyframes c36-fly{0%,44%{transform:translate(0px,0px) scale(1);opacity:0}46%{transform:translate(0px,0px) scale(1);opacity:1}52%{transform:translate(168px,-24px) scale(0.6);opacity:1}54%{transform:translate(168px,-24px) scale(0.6);opacity:0}100%{transform:translate(168px,-24px) scale(1);opacity:0}}
+.mp svg .c36-hl{animation:c36-hl 7s infinite ease-in-out;}@keyframes c36-hl{0%,54%{opacity:0}57%,100%{opacity:1}}
+.mp svg .c36-chunk{animation:c36-chunk 7s infinite ease-in-out;}@keyframes c36-chunk{0%,60%{transform:translate(0px,0px) scale(1);opacity:0}62%{transform:translate(0px,0px) scale(1);opacity:1}70%{transform:translate(-6px,150px) scale(0.7);opacity:1}72%{transform:translate(-6px,150px) scale(0.7);opacity:0}100%{transform:translate(-6px,150px) scale(1);opacity:0}}
+.mp svg .c36-q2{animation:c36-q2 7s infinite ease-in-out;}@keyframes c36-q2{0%,60%{transform:translate(0px,0px) scale(1);opacity:0}62%{transform:translate(0px,0px) scale(1);opacity:1}70%{transform:translate(150px,184px) scale(0.6);opacity:1}72%{transform:translate(150px,184px) scale(0.6);opacity:0}100%{transform:translate(150px,184px) scale(1);opacity:0}}
+.mp svg .c36-ans{animation:c36-ans 7s infinite ease-in-out;}@keyframes c36-ans{0%,74%{opacity:0;transform:scale(.3)}77%{opacity:1;transform:scale(1.18)}79%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c36-note{animation:c36-note 7s infinite ease-in-out;}@keyframes c36-note{0%,76%{opacity:0}79%,100%{opacity:1}}
