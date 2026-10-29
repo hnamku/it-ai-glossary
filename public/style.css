@@ -944,3 +944,34 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c1x-a{animation:c1x-a 7s infinite ease-in-out;}@keyframes c1x-a{0%,58%{transform:translate(0px,0px) scale(1);opacity:0}60%{transform:translate(0px,0px) scale(1);opacity:1}68%{transform:translate(-96px,-22px) scale(0.7);opacity:1}70%{transform:translate(-96px,-22px) scale(0.7);opacity:0}100%{transform:translate(-96px,-22px) scale(1);opacity:0}}
 .mp svg .c1x-bd{animation:c1x-bd 7s infinite ease-in-out;}@keyframes c1x-bd{0%,70%{opacity:0;transform:scale(.3)}73%{opacity:1;transform:scale(1.18)}75%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c1x-note{animation:c1x-note 7s infinite ease-in-out;}@keyframes c1x-note{0%,74%{opacity:0}77%,100%{opacity:1}}
+
+/* HTML · CSS · JavaScript: code (left) → browser (right) */
+.mp svg .c6h-l0{animation:c6h-l0 7s infinite ease-in-out;}@keyframes c6h-l0{0%,26%{opacity:0}29%,100%{opacity:1}}
+.mp svg .c6h-l1{animation:c6h-l1 7s infinite ease-in-out;}@keyframes c6h-l1{0%,35%{opacity:0}38%,100%{opacity:1}}
+.mp svg .c6h-l2{animation:c6h-l2 7s infinite ease-in-out;}@keyframes c6h-l2{0%,44%{opacity:0}47%,100%{opacity:1}}
+.mp svg .c6h-l3{animation:c6h-l3 7s infinite ease-in-out;}@keyframes c6h-l3{0%,53%{opacity:0}56%,100%{opacity:1}}
+.mp svg .c6h-e0{animation:c6h-e0 7s infinite ease-in-out;}@keyframes c6h-e0{0%,28%{opacity:0;transform:scale(.3)}31%{opacity:1;transform:scale(1.18)}33%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c6h-e1{animation:c6h-e1 7s infinite ease-in-out;}@keyframes c6h-e1{0%,37%{opacity:0;transform:scale(.3)}40%{opacity:1;transform:scale(1.18)}42%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c6h-e2{animation:c6h-e2 7s infinite ease-in-out;}@keyframes c6h-e2{0%,46%{opacity:0;transform:scale(.3)}49%{opacity:1;transform:scale(1.18)}51%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c6h-e3{animation:c6h-e3 7s infinite ease-in-out;}@keyframes c6h-e3{0%,55%{opacity:0;transform:scale(.3)}58%{opacity:1;transform:scale(1.18)}60%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c6h-n{animation:c6h-n 7s infinite ease-in-out;}@keyframes c6h-n{0%,66%{opacity:0}69%,100%{opacity:1}}
+.mp svg .c7c-l0{animation:c7c-l0 7s infinite ease-in-out;}@keyframes c7c-l0{0%,26%{opacity:0}29%,100%{opacity:1}}
+.mp svg .c7c-l1{animation:c7c-l1 7s infinite ease-in-out;}@keyframes c7c-l1{0%,34%{opacity:0}37%,100%{opacity:1}}
+.mp svg .c7c-l2{animation:c7c-l2 7s infinite ease-in-out;}@keyframes c7c-l2{0%,42%{opacity:0}45%,100%{opacity:1}}
+.mp svg .c7c-l3{animation:c7c-l3 7s infinite ease-in-out;}@keyframes c7c-l3{0%,50%{opacity:0}53%,100%{opacity:1}}
+.mp svg .c7c-l4{animation:c7c-l4 7s infinite ease-in-out;}@keyframes c7c-l4{0%,58%{opacity:0}61%,100%{opacity:1}}
+.mp svg .c7c-h0{animation:c7c-h0 7s infinite ease-in-out;}@keyframes c7c-h0{0%,34%{opacity:1}37%,100%{opacity:0}}
+.mp svg .c7c-h1{animation:c7c-h1 7s infinite ease-in-out;}@keyframes c7c-h1{0%,34%{opacity:0;transform:scale(.85)}37%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c7c-i0{animation:c7c-i0 7s infinite ease-in-out;}@keyframes c7c-i0{0%,44%{opacity:1}47%,100%{opacity:0}}
+.mp svg .c7c-i1{animation:c7c-i1 7s infinite ease-in-out;}@keyframes c7c-i1{0%,44%{opacity:0;transform:scale(.85)}47%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c7c-b0{animation:c7c-b0 7s infinite ease-in-out;}@keyframes c7c-b0{0%,52%{opacity:1}55%,100%{opacity:0}}
+.mp svg .c7c-b1{animation:c7c-b1 7s infinite ease-in-out;}@keyframes c7c-b1{0%,52%{opacity:0;transform:scale(.85)}55%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c7c-tx{animation:c7c-tx 7s infinite ease-in-out;transform-origin:left top}@keyframes c7c-tx{0%,58%{transform:translate(0,0)}64%,100%{transform:translate(84px,-62px) scale(.55,1)}}
+.mp svg .c7c-n{animation:c7c-n 7s infinite ease-in-out;}@keyframes c7c-n{0%,68%{opacity:0}71%,100%{opacity:1}}
+.mp svg .c8j-hl{animation:c8j-hl 7s infinite steps(1,end);}@keyframes c8j-hl{0%,32%{opacity:0;transform:translateY(-32px)}33%{opacity:1;transform:translateY(-32px)}38%{opacity:1;transform:translateY(0)}44%{opacity:1;transform:translateY(32px)}49%,58%{opacity:0;transform:translateY(32px)}60%{opacity:1;transform:translateY(-32px)}64%{opacity:1;transform:translateY(0)}68%{opacity:1;transform:translateY(32px)}72%,100%{opacity:0;transform:translateY(32px)}}
+.mp svg .c8j-cur{animation:c8j-cur 7s infinite ease-in-out;}@keyframes c8j-cur{0%,24%{transform:translate(60px,40px) scale(1);opacity:0}26%{transform:translate(60px,40px) scale(1);opacity:1}31%{transform:translate(0px,0px) scale(1);opacity:1}33%{transform:translate(0px,0px) scale(0.85);opacity:1}35%{transform:translate(0px,0px) scale(1);opacity:1}57%{transform:translate(0px,0px) scale(1);opacity:1}59%{transform:translate(0px,0px) scale(0.85);opacity:1}61%{transform:translate(0px,0px) scale(1);opacity:1}80%{transform:translate(0px,0px) scale(1);opacity:1}84%,100%{transform:translate(0px,0px) scale(1);opacity:0}}
+.mp svg .c8j-hf{animation:c8j-hf 7s infinite ease-in-out;}@keyframes c8j-hf{0%,46%{opacity:0;transform:scale(.6)}48%{opacity:1;transform:scale(1.35)}52%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c8j-n0{animation:c8j-n0 7s infinite ease-in-out;}@keyframes c8j-n0{0%,46%{opacity:1}47%,100%{opacity:0}}
+.mp svg .c8j-n1{animation:c8j-n1 7s infinite ease-in-out;}@keyframes c8j-n1{0%,46%{opacity:0}47%,69%{opacity:1}70%,100%{opacity:0}}
+.mp svg .c8j-n2{animation:c8j-n2 7s infinite ease-in-out;}@keyframes c8j-n2{0%,69%{opacity:0}70%{opacity:1;transform:scale(1.3)}74%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c8j-n{animation:c8j-n 7s infinite ease-in-out;}@keyframes c8j-n{0%,76%{opacity:0}79%,100%{opacity:1}}
