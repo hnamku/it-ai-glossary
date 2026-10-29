@@ -1053,3 +1053,21 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c29x-glow{opacity:0;animation:c29x-glow 7s infinite}@keyframes c29x-glow{0%{opacity:0}22%{opacity:0}23.5%{opacity:1}26.5%{opacity:1}28%{opacity:0}52%{opacity:0}53.5%{opacity:1}56.5%{opacity:1}58%{opacity:0}82%{opacity:0}83.5%{opacity:1}86.5%{opacity:1}88%{opacity:0}100%{opacity:0}}
 .mp svg .c29x-up{opacity:0;animation:c29x-up 7s infinite}@keyframes c29x-up{0%{opacity:0}22%{opacity:0}23.5%{opacity:1}29.5%{opacity:1}31%{opacity:0}52%{opacity:0}53.5%{opacity:1}59.5%{opacity:1}61%{opacity:0}82%{opacity:0}83.5%{opacity:1}89.5%{opacity:1}91%{opacity:0}100%{opacity:0}}
 .mp svg .c29x-n{animation:c29x-n 7s infinite ease-in-out;}@keyframes c29x-n{0%,90%{opacity:0}93%,100%{opacity:1}}
+
+/* 30 LLM 추론: 가중치 고정, 다음 단어를 골라 이어 붙임 */
+.mp svg .c30x-k0{animation:c30x-k0 7s infinite ease-in-out;}@keyframes c30x-k0{0%,8%{opacity:0}9.5%,38%{opacity:1}39.5%,100%{opacity:0}}
+.mp svg .c30x-c0{animation:c30x-c0 7s infinite ease-in-out;}@keyframes c30x-c0{0%,16%{opacity:0}17.5%,38%{opacity:1}39.5%,100%{opacity:0}}
+.mp svg .c30x-b00{animation:c30x-b00 7s infinite ease-out;transform-origin:left center}@keyframes c30x-b00{0%,16%{transform:scaleX(0)}23%,100%{transform:scaleX(1)}}
+.mp svg .c30x-b01{animation:c30x-b01 7s infinite ease-out;transform-origin:left center}@keyframes c30x-b01{0%,16%{transform:scaleX(0)}23%,100%{transform:scaleX(1)}}
+.mp svg .c30x-b02{animation:c30x-b02 7s infinite ease-out;transform-origin:left center}@keyframes c30x-b02{0%,16%{transform:scaleX(0)}23%,100%{transform:scaleX(1)}}
+.mp svg .c30x-h0{animation:c30x-h0 7s infinite ease-in-out;}@keyframes c30x-h0{0%,25%{opacity:0}26.5%,38%{opacity:1}39.5%,100%{opacity:0}}
+.mp svg .c30x-w0{animation:c30x-w0 7s infinite ease-in-out;}@keyframes c30x-w0{0%{transform:translate(144px,70px) scale(1);opacity:0}28%{transform:translate(144px,70px) scale(1);opacity:0}29%{transform:translate(144px,70px) scale(1);opacity:1}36%{transform:translate(0px,0px) scale(1);opacity:1}100%{transform:translate(0px,0px) scale(1);opacity:1}}
+.mp svg .c30x-k1{animation:c30x-k1 7s infinite ease-in-out;}@keyframes c30x-k1{0%,46%{opacity:0}47.5%,76%{opacity:1}77.5%,100%{opacity:0}}
+.mp svg .c30x-c1{animation:c30x-c1 7s infinite ease-in-out;}@keyframes c30x-c1{0%,54%{opacity:0}55.5%,76%{opacity:1}77.5%,100%{opacity:0}}
+.mp svg .c30x-b10{animation:c30x-b10 7s infinite ease-out;transform-origin:left center}@keyframes c30x-b10{0%,54%{transform:scaleX(0)}61%,100%{transform:scaleX(1)}}
+.mp svg .c30x-b11{animation:c30x-b11 7s infinite ease-out;transform-origin:left center}@keyframes c30x-b11{0%,54%{transform:scaleX(0)}61%,100%{transform:scaleX(1)}}
+.mp svg .c30x-b12{animation:c30x-b12 7s infinite ease-out;transform-origin:left center}@keyframes c30x-b12{0%,54%{transform:scaleX(0)}61%,100%{transform:scaleX(1)}}
+.mp svg .c30x-h1{animation:c30x-h1 7s infinite ease-in-out;}@keyframes c30x-h1{0%,63%{opacity:0}64.5%,76%{opacity:1}77.5%,100%{opacity:0}}
+.mp svg .c30x-w1{animation:c30x-w1 7s infinite ease-in-out;}@keyframes c30x-w1{0%{transform:translate(74px,70px) scale(1);opacity:0}66%{transform:translate(74px,70px) scale(1);opacity:0}67%{transform:translate(74px,70px) scale(1);opacity:1}74%{transform:translate(0px,0px) scale(1);opacity:1}100%{transform:translate(0px,0px) scale(1);opacity:1}}
+.mp svg .c30x-glow{opacity:0;animation:c30x-glow 7s infinite}@keyframes c30x-glow{0%{opacity:0}10%{opacity:0}11.5%{opacity:1}15.5%{opacity:1}17%{opacity:0}48%{opacity:0}49.5%{opacity:1}53.5%{opacity:1}55%{opacity:0}100%{opacity:0}}
+.mp svg .c30x-n{animation:c30x-n 7s infinite ease-in-out;}@keyframes c30x-n{0%,84%{opacity:0}87%,100%{opacity:1}}
