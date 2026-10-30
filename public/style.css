@@ -1217,3 +1217,27 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c87-n1{animation:c87-n1 14s infinite ease-in-out;}@keyframes c87-n1{0%,72%{opacity:0}75%,100%{opacity:1}}
 .mp svg .c87-n2{animation:c87-n2 14s infinite ease-in-out;}@keyframes c87-n2{0%,78%{opacity:0}81%,100%{opacity:1}}
 .mp svg .c87-n3{animation:c87-n3 14s infinite ease-in-out;}@keyframes c87-n3{0%,82%{opacity:0}85%,100%{opacity:1}}
+
+/* 40 AI 에이전트: 목표 → 생각·행동·관찰 반복 → 할 일 완료 */
+.mp svg .c40x-dot{animation:c40x-dot 14s infinite ease-in-out;}@keyframes c40x-dot{0%{transform:translate(0px,0px) scale(1);opacity:0}4%{transform:translate(0px,0px) scale(1);opacity:1}6%{transform:translate(0px,0px) scale(1);opacity:1}10%{transform:translate(50px,104px) scale(1);opacity:1}15%{transform:translate(50px,104px) scale(1);opacity:1}18%{transform:translate(-50px,104px) scale(1);opacity:1}22%{transform:translate(0px,0px) scale(1);opacity:1}26%{transform:translate(50px,104px) scale(1);opacity:1}31%{transform:translate(50px,104px) scale(1);opacity:1}34%{transform:translate(-50px,104px) scale(1);opacity:1}38%{transform:translate(0px,0px) scale(1);opacity:1}42%{transform:translate(50px,104px) scale(1);opacity:1}47%{transform:translate(50px,104px) scale(1);opacity:1}50%{transform:translate(-50px,104px) scale(1);opacity:1}54%{transform:translate(0px,0px) scale(1);opacity:1}58%{transform:translate(50px,104px) scale(1);opacity:1}63%{transform:translate(50px,104px) scale(1);opacity:1}66%{transform:translate(-50px,104px) scale(1);opacity:1}72%{transform:translate(0px,0px) scale(1);opacity:1}76%{transform:translate(50px,104px) scale(1);opacity:1}81%{transform:translate(50px,104px) scale(1);opacity:1}84%{transform:translate(-50px,104px) scale(1);opacity:1}86%{transform:translate(0px,0px) scale(1);opacity:1}90%,100%{transform:translate(0px,0px) scale(1);opacity:0}}
+.mp svg .c40x-th0{animation:c40x-th0 14s infinite ease-in-out;}@keyframes c40x-th0{0%,10%{opacity:0}11%,16%{opacity:1}17%,100%{opacity:0}}
+.mp svg .c40x-c0{animation:c40x-c0 14s infinite ease-in-out;}@keyframes c40x-c0{0%,10%{opacity:0}11%,16%{opacity:1}17%,100%{opacity:0}}
+.mp svg .c40x-k0{animation:c40x-k0 14s infinite ease-in-out;}@keyframes c40x-k0{0%,19%{opacity:0}20%,100%{opacity:1}}
+.mp svg .c40x-th1{animation:c40x-th1 14s infinite ease-in-out;}@keyframes c40x-th1{0%,26%{opacity:0}27%,32%{opacity:1}33%,100%{opacity:0}}
+.mp svg .c40x-c1{animation:c40x-c1 14s infinite ease-in-out;}@keyframes c40x-c1{0%,26%{opacity:0}27%,32%{opacity:1}33%,100%{opacity:0}}
+.mp svg .c40x-k1{animation:c40x-k1 14s infinite ease-in-out;}@keyframes c40x-k1{0%,35%{opacity:0}36%,100%{opacity:1}}
+.mp svg .c40x-k2{animation:c40x-k2 14s infinite ease-in-out;}@keyframes c40x-k2{0%,51%{opacity:0}52%,100%{opacity:1}}
+.mp svg .c40x-th2{animation:c40x-th2 14s infinite ease-in-out;}@keyframes c40x-th2{0%,58%{opacity:0}59%,64%{opacity:1}65%,100%{opacity:0}}
+.mp svg .c40x-c2{animation:c40x-c2 14s infinite ease-in-out;}@keyframes c40x-c2{0%,58%{opacity:0}59%,64%{opacity:1}65%,100%{opacity:0}}
+.mp svg .c40x-k3{animation:c40x-k3 14s infinite ease-in-out;}@keyframes c40x-k3{0%,69%{opacity:0}70%,100%{opacity:1}}
+.mp svg .c40x-th3{animation:c40x-th3 14s infinite ease-in-out;}@keyframes c40x-th3{0%,76%{opacity:0}77%,82%{opacity:1}83%,100%{opacity:0}}
+.mp svg .c40x-c3{animation:c40x-c3 14s infinite ease-in-out;}@keyframes c40x-c3{0%,76%{opacity:0}77%,82%{opacity:1}83%,100%{opacity:0}}
+.mp svg .c40x-k4{animation:c40x-k4 14s infinite ease-in-out;}@keyframes c40x-k4{0%,85%{opacity:0}86%,100%{opacity:1}}
+.mp svg .c40x-o0{animation:c40x-o0 14s infinite ease-in-out;}@keyframes c40x-o0{0%,17%{opacity:0}18%,32%{opacity:1}33%,100%{opacity:0}}
+.mp svg .c40x-o1{animation:c40x-o1 14s infinite ease-in-out;}@keyframes c40x-o1{0%,33%{opacity:0}34%,48%{opacity:1}49%,100%{opacity:0}}
+.mp svg .c40x-o2{animation:c40x-o2 14s infinite ease-in-out;}@keyframes c40x-o2{0%,49%{opacity:0}50%,64%{opacity:1}65%,100%{opacity:0}}
+.mp svg .c40x-o3{animation:c40x-o3 14s infinite ease-in-out;}@keyframes c40x-o3{0%,65%{opacity:0}66%,82%{opacity:1}83%,100%{opacity:0}}
+.mp svg .c40x-o4{animation:c40x-o4 14s infinite ease-in-out;}@keyframes c40x-o4{0%,83%{opacity:0}84%,92%{opacity:1}93%,100%{opacity:0}}
+.mp svg .c40x-ok{animation:c40x-ok 14s infinite ease-in-out;}@keyframes c40x-ok{0%,60%{opacity:0}61%,69%{opacity:1}70%,100%{opacity:0}}
+.mp svg .c40x-done{animation:c40x-done 14s infinite ease-in-out;}@keyframes c40x-done{0%,88%{opacity:0}91%,100%{opacity:1}}
+.mp svg .c40x-n{animation:c40x-n 14s infinite ease-in-out;}@keyframes c40x-n{0%,90%{opacity:0}93%,100%{opacity:1}}
