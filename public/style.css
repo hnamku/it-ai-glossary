@@ -1193,3 +1193,27 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c67x-l0{animation:c67x-l0 7s infinite ease-in-out;}@keyframes c67x-l0{0%,20%{opacity:0}23%,100%{opacity:1}}
 .mp svg .c67x-l1{animation:c67x-l1 7s infinite ease-in-out;}@keyframes c67x-l1{0%,40%{opacity:0}43%,100%{opacity:1}}
 .mp svg .c67x-l2{animation:c67x-l2 7s infinite ease-in-out;}@keyframes c67x-l2{0%,60%{opacity:0}63%,100%{opacity:1}}
+
+/* 87 신경망·파라미터·가중치행렬 */
+.mp svg .c87-e0{animation:c87-e0 7s infinite ease-in-out;}@keyframes c87-e0{0%,8%{opacity:0}9%,16%{opacity:1}17%,100%{opacity:0}}
+.mp svg .c87-l0{animation:c87-l0 7s infinite ease-in-out;}@keyframes c87-l0{0%,8%{opacity:0}9%,16%{opacity:1}17%,100%{opacity:0}}
+.mp svg .c87-m0{animation:c87-m0 7s infinite ease-in-out;}@keyframes c87-m0{0%,8%{opacity:0}9%,16%{opacity:1}17%,100%{opacity:0}}
+.mp svg .c87-e1{animation:c87-e1 7s infinite ease-in-out;}@keyframes c87-e1{0%,18%{opacity:0}19%,26%{opacity:1}27%,100%{opacity:0}}
+.mp svg .c87-l1{animation:c87-l1 7s infinite ease-in-out;}@keyframes c87-l1{0%,18%{opacity:0}19%,26%{opacity:1}27%,100%{opacity:0}}
+.mp svg .c87-m1{animation:c87-m1 7s infinite ease-in-out;}@keyframes c87-m1{0%,18%{opacity:0}19%,26%{opacity:1}27%,100%{opacity:0}}
+.mp svg .c87-e2{animation:c87-e2 7s infinite ease-in-out;}@keyframes c87-e2{0%,28%{opacity:0}29%,36%{opacity:1}37%,100%{opacity:0}}
+.mp svg .c87-l2{animation:c87-l2 7s infinite ease-in-out;}@keyframes c87-l2{0%,28%{opacity:0}29%,36%{opacity:1}37%,100%{opacity:0}}
+.mp svg .c87-m2{animation:c87-m2 7s infinite ease-in-out;}@keyframes c87-m2{0%,28%{opacity:0}29%,36%{opacity:1}37%,100%{opacity:0}}
+.mp svg .c87-e3{animation:c87-e3 7s infinite ease-in-out;}@keyframes c87-e3{0%,38%{opacity:0}39%,46%{opacity:1}47%,100%{opacity:0}}
+.mp svg .c87-l3{animation:c87-l3 7s infinite ease-in-out;}@keyframes c87-l3{0%,38%{opacity:0}39%,46%{opacity:1}47%,100%{opacity:0}}
+.mp svg .c87-m3{animation:c87-m3 7s infinite ease-in-out;}@keyframes c87-m3{0%,38%{opacity:0}39%,46%{opacity:1}47%,100%{opacity:0}}
+.mp svg .c87-e4{animation:c87-e4 7s infinite ease-in-out;}@keyframes c87-e4{0%,48%{opacity:0}49%,56%{opacity:1}57%,100%{opacity:0}}
+.mp svg .c87-l4{animation:c87-l4 7s infinite ease-in-out;}@keyframes c87-l4{0%,48%{opacity:0}49%,56%{opacity:1}57%,100%{opacity:0}}
+.mp svg .c87-m4{animation:c87-m4 7s infinite ease-in-out;}@keyframes c87-m4{0%,48%{opacity:0}49%,56%{opacity:1}57%,100%{opacity:0}}
+.mp svg .c87-e5{animation:c87-e5 7s infinite ease-in-out;}@keyframes c87-e5{0%,58%{opacity:0}59%,66%{opacity:1}67%,100%{opacity:0}}
+.mp svg .c87-l5{animation:c87-l5 7s infinite ease-in-out;}@keyframes c87-l5{0%,58%{opacity:0}59%,66%{opacity:1}67%,100%{opacity:0}}
+.mp svg .c87-m5{animation:c87-m5 7s infinite ease-in-out;}@keyframes c87-m5{0%,58%{opacity:0}59%,66%{opacity:1}67%,100%{opacity:0}}
+.mp svg .c87-eq{animation:c87-eq 7s infinite ease-in-out;}@keyframes c87-eq{0%,70%{opacity:0;transform:scale(.3)}73%{opacity:1;transform:scale(1.18)}75%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c87-n1{animation:c87-n1 7s infinite ease-in-out;}@keyframes c87-n1{0%,72%{opacity:0}75%,100%{opacity:1}}
+.mp svg .c87-n2{animation:c87-n2 7s infinite ease-in-out;}@keyframes c87-n2{0%,78%{opacity:0}81%,100%{opacity:1}}
+.mp svg .c87-n3{animation:c87-n3 7s infinite ease-in-out;}@keyframes c87-n3{0%,82%{opacity:0}85%,100%{opacity:1}}
