@@ -1106,3 +1106,24 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .mp svg .c70x-as{animation:c70x-as 7s infinite ease-in-out;}@keyframes c70x-as{0%,70%{opacity:0;transform:scale(.3)}73%{opacity:1;transform:scale(1.18)}75%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c70x-eq{animation:c70x-eq 7s infinite ease-in-out;}@keyframes c70x-eq{0%,74%{opacity:0;transform:scale(.3)}77%{opacity:1;transform:scale(1.18)}79%,100%{opacity:1;transform:scale(1)}}
 .mp svg .c70x-n{animation:c70x-n 7s infinite ease-in-out;}@keyframes c70x-n{0%,80%{opacity:0}83%,100%{opacity:1}}
+
+/* 68 RLHF: 두 답 → 사람 선호(보상) → 같은 LLM 재훈련 */
+.mp svg .c68x-A{animation:c68x-A 7s infinite ease-in-out;}@keyframes c68x-A{0%,12%{opacity:0;transform:scale(.3)}15%{opacity:1;transform:scale(1.18)}17%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-B{animation:c68x-B 7s infinite ease-in-out;}@keyframes c68x-B{0%,16%{opacity:0;transform:scale(.3)}19%{opacity:1;transform:scale(1.18)}21%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-v0{animation:c68x-v0 7s infinite ease-in-out;}@keyframes c68x-v0{0%{transform:translate(0px,0px) scale(1);opacity:0}24%{transform:translate(0px,0px) scale(1);opacity:0}25%{transform:translate(0px,0px) scale(1);opacity:1}30%{transform:translate(-88px,59px) scale(0.6);opacity:1}31%{transform:translate(-88px,59px) scale(0.6);opacity:0}100%{transform:translate(-88px,59px) scale(1);opacity:0}}
+.mp svg .c68x-v1{animation:c68x-v1 7s infinite ease-in-out;}@keyframes c68x-v1{0%{transform:translate(0px,0px) scale(1);opacity:0}27%{transform:translate(0px,0px) scale(1);opacity:0}28%{transform:translate(0px,0px) scale(1);opacity:1}33%{transform:translate(-116px,59px) scale(0.6);opacity:1}34%{transform:translate(-116px,59px) scale(0.6);opacity:0}100%{transform:translate(-116px,59px) scale(1);opacity:0}}
+.mp svg .c68x-v2{animation:c68x-v2 7s infinite ease-in-out;}@keyframes c68x-v2{0%{transform:translate(0px,0px) scale(1);opacity:0}30%{transform:translate(0px,0px) scale(1);opacity:0}31%{transform:translate(0px,0px) scale(1);opacity:1}36%{transform:translate(-144px,59px) scale(0.6);opacity:1}37%{transform:translate(-144px,59px) scale(0.6);opacity:0}100%{transform:translate(-144px,59px) scale(1);opacity:0}}
+.mp svg .c68x-Bsel{animation:c68x-Bsel 7s infinite ease-in-out;}@keyframes c68x-Bsel{0%,37%{opacity:0}40%,100%{opacity:1}}
+.mp svg .c68x-Adim{animation:c68x-Adim 7s infinite ease-in-out;}@keyframes c68x-Adim{0%,37%{opacity:0}40%,100%{opacity:1}}
+.mp svg .c68x-pref{animation:c68x-pref 7s infinite ease-in-out;}@keyframes c68x-pref{0%,38%{opacity:0;transform:scale(.3)}41%{opacity:1;transform:scale(1.18)}43%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-d0{animation:c68x-d0 7s infinite ease-in-out;}@keyframes c68x-d0{0%{transform:translate(140px,-56px) scale(1);opacity:0}44%{transform:translate(140px,-56px) scale(1);opacity:0}45%{transform:translate(140px,-56px) scale(1);opacity:1}51%{transform:translate(0px,0px) scale(1);opacity:1}100%{transform:translate(0px,0px) scale(1);opacity:1}}
+.mp svg .c68x-d1{animation:c68x-d1 7s infinite ease-in-out;}@keyframes c68x-d1{0%,52%{opacity:0;transform:scale(.3)}55%{opacity:1;transform:scale(1.18)}57%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-d2{animation:c68x-d2 7s infinite ease-in-out;}@keyframes c68x-d2{0%,54%{opacity:0;transform:scale(.3)}57%{opacity:1;transform:scale(1.18)}59%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-d3{animation:c68x-d3 7s infinite ease-in-out;}@keyframes c68x-d3{0%,56%{opacity:0;transform:scale(.3)}59%{opacity:1;transform:scale(1.18)}61%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-d4{animation:c68x-d4 7s infinite ease-in-out;}@keyframes c68x-d4{0%,58%{opacity:0;transform:scale(.3)}61%{opacity:1;transform:scale(1.18)}63%,100%{opacity:1;transform:scale(1)}}
+.mp svg .c68x-many{animation:c68x-many 7s infinite ease-in-out;}@keyframes c68x-many{0%,60%{opacity:0}63%,100%{opacity:1}}
+.mp svg .c68x-w0{animation:c68x-w0 7s infinite ease-in-out;}@keyframes c68x-w0{0%,70%{opacity:1}73%,100%{opacity:0}}
+.mp svg .c68x-w3{animation:c68x-w3 7s infinite ease-in-out;}@keyframes c68x-w3{0%,70%{opacity:0}73%,100%{opacity:1}}
+.mp svg .c68x-glow{opacity:0;animation:c68x-glow 7s infinite}@keyframes c68x-glow{0%{opacity:0}66%{opacity:0}67.5%{opacity:1}74.5%{opacity:1}76%{opacity:0}100%{opacity:0}}
+.mp svg .c68x-up{opacity:0;animation:c68x-up 7s infinite}@keyframes c68x-up{0%{opacity:0}66%{opacity:0}67.5%{opacity:1}78.5%{opacity:1}80%{opacity:0}100%{opacity:0}}
+.mp svg .c68x-n{animation:c68x-n 7s infinite ease-in-out;}@keyframes c68x-n{0%,68%{opacity:0}71%,100%{opacity:1}}
