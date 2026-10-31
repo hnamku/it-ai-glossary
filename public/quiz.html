@@ -39,6 +39,15 @@
 </style></head><body>
 <header><a href="/" class="brand">AI·IT를 읽어드립니다</a><a class="small" href="/">← 용어집으로</a></header>
 <main class="quiz-wrap">
+ <section id="join" hidden>
+  <div class="quiz-card">
+   <div class="eyebrow">CLASS QUIZ · <span id="jCode"></span></div>
+   <h1 id="jTitle">강의실 퀴즈</h1>
+   <p class="lead" id="jLead">이름을 적고 입장하세요. 문제는 5개이고, 한 번 고른 답은 바꿀 수 없어요. 점수는 선생님 화면에 바로 보입니다.</p>
+   <div class="q-row" style="grid-template-columns:1fr"><div><label for="jName">이름</label><input id="jName" maxlength="20" autocomplete="name" placeholder="예: 김민지"></div></div>
+   <div class="q-actions"><button class="q-btn" id="jGo">입장하기</button></div>
+  </div>
+ </section>
  <section id="setup">
   <div class="quiz-card">
    <div class="eyebrow">QUIZ</div>
@@ -46,7 +55,7 @@
    <p class="lead">용어집의 정의에서 용어 이름을 가리고 문제를 냅니다. 보기 4개 중 하나를 고르면 바로 정답을 알려 드려요.</p>
    <div class="q-row">
     <div><label for="cat">분야</label><select id="cat"><option value="">전체 분야</option></select></div>
-    <div><label for="num">문제 수</label><select id="num"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+    <div><label for="num">문제 수</label><select id="num"><option selected>5</option><option>10</option><option>15</option><option>20</option></select></div>
    </div>
    <div class="q-actions"><button class="q-btn" id="start">퀴즈 시작</button></div>
   </div>
@@ -77,12 +86,12 @@
   <div class="quiz-card">
    <div class="eyebrow">RESULT</div>
    <div class="score" id="score"></div>
-   <p class="lead" id="msg"></p>
+   <p class="lead" id="msg"></p><p class="lead" id="sent" hidden>✓ 선생님 화면에 점수가 전송됐어요.</p>
    <ul class="wrong-list" id="wrong"></ul>
-   <div class="q-actions"><button class="q-btn" id="again">다시 풀기</button><button class="q-btn ghost" id="other">분야 바꾸기</button></div>
+   <div class="q-actions" id="resActions"><button class="q-btn" id="again">다시 풀기</button><button class="q-btn ghost" id="other">분야 바꾸기</button></div>
   </div>
  </section>
 </main>
-<footer class="site-credit">Provided by NoName Factory Inc.</footer>
+<p style="text-align:center;font-size:12px;margin:0 0 20px"><a href="/class" style="color:var(--muted)">강의실 모드 (교수자용) →</a></p><footer class="site-credit">Provided by NoName Factory Inc.</footer>
 <script src="/qrcode.js"></script><script src="/quiz.js"></script>
 </body></html>

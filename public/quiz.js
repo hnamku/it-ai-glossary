@@ -2,6 +2,8 @@
 (() => {
   const $ = id => document.getElementById(id);
   let terms = [], cats = [], quiz = [], idx = 0, right = 0, wrongs = [];
+  let room = null, me = null;   // 강의실 모드: 방 정보, 내 기록 {pid, name, answers:[{id,pick}]}
+  const store = { get: k => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } }, set: (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} } };
 
   const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
   const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -15,10 +17,18 @@
       const m = p.match(/^(.+?)\s*\((.+)\)$/);
       if (m) { out.add(m[1].trim()); out.add(m[2].trim()); }
     }
+    for (const w of [...out]) for (const x of w.split(/\s+/)) out.add(x.replace(/[()]/g, ''));   // 'LLM 추론' → 'LLM', '추론'도 가림
     return [...out].filter(s => s.length >= 2).sort((a, b) => b.length - a.length);
   }
+  // 문제는 짧게: 정의의 앞 1~2문장만 (예시·주의 문장은 빼고)
+  function shortDef(d) {
+    const sents = d.split(/(?<=[.!?])\s+/);
+    let out = sents[0] || d;
+    if (out.length < 45 && sents[1]) out += ' ' + sents[1];
+    return out.length > 170 ? out.slice(0, 168) + '…' : out;
+  }
   function masked(t) {
-    let html = esc(t.definition);
+    let html = esc(shortDef(t.definition));
     const parts = nameParts(t.term).map(p => esc(p));
     if (parts.length) html = html.replace(new RegExp(parts.map(reEsc).join('|'), 'gi'), '<mark>???</mark>');
     return html;
@@ -40,17 +50,18 @@
     for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (qr.isDark(r, c)) ctx.fillRect(Math.floor((c + quiet) * cell), Math.floor((r + quiet) * cell), Math.ceil(cell), Math.ceil(cell));
   }
 
-  function show(id) { for (const s of ['setup', 'play', 'result']) $(s).hidden = s !== id; window.scrollTo(0, 0); }
+  function show(id) { for (const s of ['join', 'setup', 'play', 'result']) $(s).hidden = s !== id; window.scrollTo(0, 0); }
+  const makeQ = t => {
+    const same = shuffle(terms.filter(x => x.id !== t.id && x.categoryId === t.categoryId));
+    const rest = shuffle(terms.filter(x => x.id !== t.id && x.categoryId !== t.categoryId));
+    return { t, options: shuffle([t, ...same.concat(rest).slice(0, 3)]) };
+  };
 
   function start() {
     const c = $('cat').value, n = +$('num').value;
     const pool = terms.filter(t => !c || t.categoryId === c);
     if (!pool.length) return;
-    quiz = shuffle(pool).slice(0, Math.min(n, pool.length)).map(t => {
-      const same = shuffle(terms.filter(x => x.id !== t.id && x.categoryId === t.categoryId));
-      const rest = shuffle(terms.filter(x => x.id !== t.id && x.categoryId !== t.categoryId));
-      return { t, options: shuffle([t, ...same.concat(rest).slice(0, 3)]) };
-    });
+    quiz = shuffle(pool).slice(0, Math.min(n, pool.length)).map(makeQ);
     idx = 0; right = 0; wrongs = []; show('play'); ask();
   }
 
@@ -70,6 +81,7 @@
   function pick(btn, o) {
     const { t } = quiz[idx], ok = o.id === t.id;
     [...$('opts').children].forEach((b, i) => { b.disabled = true; if (quiz[idx].options[i].id === t.id) b.classList.add('right'); });
+    if (room) { me.answers.push({ id: t.id, pick: o.id }); store.set('room:' + room.code, me); send(); }
     if (ok) { right++; $('fb').innerHTML = '<b class="ok">정답!</b>'; }
     else { btn.classList.add('wrong'); wrongs.push(t); $('fb').innerHTML = `<b class="no">아쉬워요.</b> 정답은 <b>${esc(t.term)}</b>입니다.`; }
     $('qBar').style.width = `${(idx + 1) / quiz.length * 100}%`;
@@ -89,7 +101,41 @@
       li.innerHTML = `<a href="/#${encodeURIComponent(t.categoryId)}">${esc(t.term)}</a> — ${esc(t.definition.length > 90 ? t.definition.slice(0, 90) + '…' : t.definition)}`;
       ul.append(li);
     }
+    $('sent').hidden = !room; $('resActions').hidden = !!room;
     show('result');
+  }
+
+  // ── 강의실 모드 ──
+  async function send() {
+    try {
+      const r = await fetch('/api/room?op=submit', { method: 'POST', headers: { 'content-type': 'application/json', 'x-malteut-admin': '1' }, body: JSON.stringify({ code: room.code, pid: me.pid, name: me.name, answers: me.answers }) });
+      if (!r.ok) { const j = await r.json().catch(() => ({})); $('fb').insertAdjacentHTML('beforeend', `<br><b class="no">${esc(j.error || '점수 전송에 실패했어요.')}</b>`); }
+    } catch { $('fb').insertAdjacentHTML('beforeend', '<br><b class="no">인터넷 연결을 확인해 주세요.</b>'); }
+  }
+  function startRoom() {
+    quiz = room.questionIds.map(id => terms.find(t => t.id === id)).filter(Boolean).map(makeQ);
+    right = 0; wrongs = []; idx = 0;
+    // 새로고침했으면 이미 푼 문제는 건너뜀
+    for (const a of me.answers) { const q = quiz[idx]; if (!q || q.t.id !== a.id) break; if (a.pick === a.id) right++; else wrongs.push(q.t); idx++; }
+    if (idx >= quiz.length) return finish();
+    show('play'); ask();
+  }
+  async function openRoom(code) {
+    show('join'); $('jCode').textContent = code;
+    let meta;
+    try { const r = await fetch('/api/room?op=room&code=' + encodeURIComponent(code)); meta = await r.json(); if (!r.ok) throw Error(meta.error); }
+    catch (e) { $('jLead').textContent = e.message || '방 정보를 불러오지 못했어요.'; $('jGo').hidden = true; $('jName').parentElement.hidden = true; return; }
+    room = meta; if (room.title) $('jTitle').textContent = room.title;
+    me = store.get('room:' + code);
+    if (me && me.answers?.length) { $('jName').value = me.name; $('jGo').textContent = '이어서 풀기'; }
+    if (!room.open && !(me && me.answers?.length >= room.questionIds.length)) { $('jLead').textContent = '이 퀴즈는 마감되었습니다.'; $('jGo').hidden = true; return; }
+    const go = () => {
+      const name = $('jName').value.trim(); if (!name) { $('jName').focus(); return; }
+      if (!me || me.name !== name && !me.answers.length) me = { pid: Array.from(crypto.getRandomValues(new Uint8Array(12)), b => (b % 36).toString(36)).join(''), name, answers: [] };
+      store.set('room:' + code, me); if (!me.answers.length) send(); startRoom();
+    };
+    $('jGo').onclick = go; $('jName').onkeydown = e => { if (e.key === 'Enter') go(); };
+    $('jName').focus();
   }
 
   $('start').onclick = start; $('next').onclick = next; $('again').onclick = start;
@@ -103,6 +149,7 @@
     const sel = $('cat');
     for (const c of cats) { const n = terms.filter(t => t.categoryId === c.id).length; if (!n) continue; const o = document.createElement('option'); o.value = c.id; o.textContent = `${c.title} (${n})`; sel.append(o); }
     const p = new URLSearchParams(location.search);
+    if (p.get('room')) return openRoom(p.get('room').toUpperCase());
     if (p.get('c') && cats.some(c => c.id === p.get('c'))) sel.value = p.get('c');
     if (p.get('n') && [...$('num').options].some(o => o.value === p.get('n'))) $('num').value = p.get('n');
     drawQR();
