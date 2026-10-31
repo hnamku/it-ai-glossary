@@ -76,12 +76,13 @@
       b.textContent = `${'①②③④'[i]} ${o.term}`; b.onclick = () => pick(b, o); box.append(b);
     });
     box.firstChild.focus({ preventScroll: true });
+    if (room && idx > 0) send();
   }
 
   function pick(btn, o) {
     const { t } = quiz[idx], ok = o.id === t.id;
     [...$('opts').children].forEach((b, i) => { b.disabled = true; if (quiz[idx].options[i].id === t.id) b.classList.add('right'); });
-    if (room) { me.answers.push({ id: t.id, pick: o.id }); store.set('room:' + room.code, me); send(); }
+    if (room) { me.answers.push({ id: t.id, pick: o.id }); store.set('room:' + room.code, me); if (me.answers.length >= quiz.length) heartbeat(false); send(); }
     if (ok) { right++; $('fb').innerHTML = '<b class="ok">정답!</b>'; }
     else { btn.classList.add('wrong'); wrongs.push(t); $('fb').innerHTML = `<b class="no">아쉬워요.</b> 정답은 <b>${esc(t.term)}</b>입니다.`; }
     $('qBar').style.width = `${(idx + 1) / quiz.length * 100}%`;
@@ -105,38 +106,57 @@
     show('result');
   }
 
-  // ── 강의실 모드 ──
+  // ── 강의실 모드 ── 이름 적고 입장 → (대기) → 퀴즈 풀기 시작 → 푸는 중 → 완료.  교수자 화면에 단계·문제 번호·접속 여부가 보임
+  let beat = null;
   async function send() {
+    if (!room || !me) return;
+    const stage = me.started ? 'playing' : 'joined', at = Math.min(quiz.length || 5, idx + 1);
     try {
-      const r = await fetch('/api/room?op=submit', { method: 'POST', headers: { 'content-type': 'application/json', 'x-malteut-admin': '1' }, body: JSON.stringify({ code: room.code, pid: me.pid, name: me.name, answers: me.answers }) });
-      if (!r.ok) { const j = await r.json().catch(() => ({})); $('fb').insertAdjacentHTML('beforeend', `<br><b class="no">${esc(j.error || '점수 전송에 실패했어요.')}</b>`); }
-    } catch { $('fb').insertAdjacentHTML('beforeend', '<br><b class="no">인터넷 연결을 확인해 주세요.</b>'); }
+      const r = await fetch('/api/room?op=submit', { method: 'POST', headers: { 'content-type': 'application/json', 'x-malteut-admin': '1' }, body: JSON.stringify({ code: room.code, pid: me.pid, name: me.name, answers: me.answers, stage, at }) });
+      if (!r.ok) { const j = await r.json().catch(() => ({})); note(j.error || '점수 전송에 실패했어요.'); }
+    } catch { note('인터넷 연결을 확인해 주세요.'); }
   }
-  function startRoom() {
+  function note(msg) { const fb = $('play').hidden ? $('jLead') : $('fb'); fb.insertAdjacentHTML('beforeend', `<br><b class="no">${esc(msg)}</b>`); }
+  function heartbeat(on) { clearInterval(beat); beat = on ? setInterval(send, 20000) : null; }   // 20초마다 '접속 중' 알림
+
+  function prepare() {
     quiz = room.questionIds.map(id => terms.find(t => t.id === id)).filter(Boolean).map(makeQ);
     right = 0; wrongs = []; idx = 0;
     // 새로고침했으면 이미 푼 문제는 건너뜀
     for (const a of me.answers) { const q = quiz[idx]; if (!q || q.t.id !== a.id) break; if (a.pick === a.id) right++; else wrongs.push(q.t); idx++; }
-    if (idx >= quiz.length) return finish();
+  }
+  function startRoom() {
+    me.started = true; store.set('room:' + room.code, me);
+    if (idx >= quiz.length) { heartbeat(false); return finish(); }
     show('play'); ask();
+  }
+  function ready() {   // 이름 적고 입장한 뒤 대기 화면
+    $('jForm').hidden = true; $('jReady').hidden = false;
+    $('jHello').textContent = `${me.name}님, 입장했어요!`;
+    $('jStart').textContent = me.answers.length ? `이어서 풀기 (${me.answers.length + 1}번부터)` : '퀴즈 풀기 시작';
+    $('jStart').focus();
   }
   async function openRoom(code) {
     show('join'); $('jCode').textContent = code;
     let meta;
     try { const r = await fetch('/api/room?op=room&code=' + encodeURIComponent(code)); meta = await r.json(); if (!r.ok) throw Error(meta.error); }
-    catch (e) { $('jLead').textContent = e.message || '방 정보를 불러오지 못했어요.'; $('jGo').hidden = true; $('jName').parentElement.hidden = true; return; }
+    catch (e) { $('jLead').textContent = e.message || '방 정보를 불러오지 못했어요.'; $('jForm').hidden = true; return; }
     room = meta; if (room.title) $('jTitle').textContent = room.title;
     me = store.get('room:' + code);
-    if (me && me.answers?.length) { $('jName').value = me.name; $('jGo').textContent = '이어서 풀기'; }
-    if (!room.open && !(me && me.answers?.length >= room.questionIds.length)) { $('jLead').textContent = '이 퀴즈는 마감되었습니다.'; $('jGo').hidden = true; return; }
+    if (me && !me.pid) me = null;
+    if (me) prepare();
+    if (me && me.answers.length >= room.questionIds.length) { prepare(); return finish(); }
+    if (!room.open) { $('jLead').textContent = '이 퀴즈는 마감되었습니다.'; $('jForm').hidden = true; return; }
+    if (me) { send(); heartbeat(true); return ready(); }   // 이미 입장한 학생: 대기 화면으로
     const go = () => {
       const name = $('jName').value.trim(); if (!name) { $('jName').focus(); return; }
-      if (!me || me.name !== name && !me.answers.length) me = { pid: Array.from(crypto.getRandomValues(new Uint8Array(12)), b => (b % 36).toString(36)).join(''), name, answers: [] };
-      store.set('room:' + code, me); if (!me.answers.length) send(); startRoom();
+      me = { pid: Array.from(crypto.getRandomValues(new Uint8Array(12)), b => (b % 36).toString(36)).join(''), name, answers: [], started: false };
+      store.set('room:' + code, me); prepare(); send(); heartbeat(true); ready();
     };
     $('jGo').onclick = go; $('jName').onkeydown = e => { if (e.key === 'Enter') go(); };
     $('jName').focus();
   }
+  $('jStart').onclick = () => { startRoom(); send(); };
 
   $('start').onclick = start; $('next').onclick = next; $('again').onclick = start;
   $('other').onclick = () => { show('setup'); drawQR(); };

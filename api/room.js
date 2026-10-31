@@ -41,7 +41,7 @@ async function players(code) {
     out.push(...page.blobs); cursor = page.hasMore ? page.cursor : undefined;
   } while (cursor);
   const recs = await Promise.all(out.map(b => readJson(b.pathname)));
-  return recs.filter(Boolean).map(({pid, name, answers, score, total, done, updatedAt}) => ({pid, name, answers: answers.map(a => ({id: a.id, ok: a.ok})), score, total, done, updatedAt}));
+  return recs.filter(Boolean).map(({pid, name, answers, score, total, done, stage, at, joinedAt, updatedAt}) => ({pid, name, answers: answers.map(a => ({id: a.id, ok: a.ok})), score, total, done, stage: done ? 'done' : stage || (answers.length ? 'playing' : 'joined'), at: at || answers.length + 1, joinedAt, updatedAt, now: Date.now()}));
 }
 
 export default async function handler(req, res) {
@@ -102,7 +102,10 @@ export default async function handler(req, res) {
       // 이미 낸 답은 바꿀 수 없음
       if (prev && (checked.length < prev.answers.length || prev.answers.some((a, i) => a.pick !== checked[i].pick))) throw fail(409, '이미 제출한 답은 바꿀 수 없어요.');
       const score = checked.filter(a => a.ok).length, total = meta.questionIds.length;
-      const rec = {pid, name, answers: checked, score, total, done: checked.length === total, joinedAt: prev?.joinedAt || Date.now(), updatedAt: Date.now()};
+      // 단계: joined(이름 적고 대기) → playing(푸는 중, at = 지금 보고 있는 문제 번호) → done
+      const stage = checked.length === total ? 'done' : (body.stage === 'playing' || checked.length ? 'playing' : 'joined');
+      const at = Math.min(total, Math.max(1, Number.isSafeInteger(Number(body.at)) ? Number(body.at) : checked.length + 1));
+      const rec = {pid, name, answers: checked, score, total, done: stage === 'done', stage, at, joinedAt: prev?.joinedAt || Date.now(), updatedAt: Date.now()};
       await writeJson(path, rec);
       return res.status(200).json({ok: true, score, total, done: rec.done});
     }

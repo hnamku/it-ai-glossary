@@ -43,9 +43,16 @@
   <div class="quiz-card">
    <div class="eyebrow">CLASS QUIZ · <span id="jCode"></span></div>
    <h1 id="jTitle">강의실 퀴즈</h1>
-   <p class="lead" id="jLead">이름을 적고 입장하세요. 문제는 5개이고, 한 번 고른 답은 바꿀 수 없어요. 점수는 선생님 화면에 바로 보입니다.</p>
-   <div class="q-row" style="grid-template-columns:1fr"><div><label for="jName">이름</label><input id="jName" maxlength="20" autocomplete="name" placeholder="예: 김민지"></div></div>
-   <div class="q-actions"><button class="q-btn" id="jGo">입장하기</button></div>
+   <p class="lead" id="jLead">이름을 적고 입장하세요. 문제는 5개이고, 한 번 고른 답은 바꿀 수 없어요.</p>
+   <div id="jForm">
+    <div class="q-row" style="grid-template-columns:1fr"><div><label for="jName">이름</label><input id="jName" maxlength="20" autocomplete="name" placeholder="예: 김민지"></div></div>
+    <div class="q-actions"><button class="q-btn" id="jGo">입장하기</button></div>
+   </div>
+   <div id="jReady" hidden>
+    <p style="font-size:20px;font-weight:800;margin:22px 0 6px" id="jHello"></p>
+    <p class="lead" style="margin-bottom:20px">준비되면 아래 버튼을 눌러 시작하세요. 푸는 동안 선생님 화면에 진행 상황과 점수가 보입니다.</p>
+    <div class="q-actions"><button class="q-btn" id="jStart">퀴즈 풀기 시작</button></div>
+   </div>
   </div>
  </section>
  <section id="setup">

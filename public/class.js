@@ -31,7 +31,7 @@
     drawQR(url); $('code').textContent = meta.code; $('url').textContent = url;
     $('roomTitle').textContent = meta.title || '강의실 퀴즈'; $('roomCat').textContent = catName(meta.categoryId) + ' · 5문제';
     setOpen(meta.open); show('room');
-    $('thead').innerHTML = `<tr><th class="name">이름</th><th>진행</th><th>점수</th>${meta.questionIds.map((_, i) => `<th>${i + 1}</th>`).join('')}</tr>`;
+    $('thead').innerHTML = `<tr><th class="name">이름</th><th>단계</th><th>점수</th>${meta.questionIds.map((_, i) => `<th>${i + 1}</th>`).join('')}</tr>`;
     clearInterval(timer); refresh(); timer = setInterval(refresh, 3000);
   }
   function setOpen(open) {
@@ -44,18 +44,29 @@
     let data; try { data = await api('scores&code=' + room.code); } catch { return; }
     const ps = data.players, Q = room.questionIds;
     const done = ps.filter(p => p.done);
-    $('sJoin').textContent = ps.length; $('sDone').textContent = done.length;
+    const waiting = ps.filter(p => p.stage === 'joined'), playing = ps.filter(p => p.stage === 'playing');
+    $('sJoin').textContent = ps.length; $('sWait').textContent = waiting.length; $('sPlay').textContent = playing.length; $('sDone').textContent = done.length;
     $('sAvg').textContent = done.length ? (done.reduce((s, p) => s + p.score, 0) / done.length).toFixed(1) : '–';
     // 문제별 정답률
     $('qrate').innerHTML = Q.map((id, i) => {
       const ans = ps.map(p => p.answers[i]).filter(Boolean), ok = ans.filter(a => a.ok).length;
       const pct = ans.length ? Math.round(ok / ans.length * 100) : 0;
-      return `<div class="qrate-row"><span class="t">${i + 1}. ${esc(termName(id))}</span><span class="bar"><i style="width:${pct}%"></i></span><span>${ans.length ? pct + '%' : '–'}</span></div>`;
+      return `<div class="qrate-row"><span class="t">${i + 1}. ${esc(termName(id))}</span><span class="qbar"><i style="width:${pct}%"></i></span><span>${ans.length ? pct + '%' : '–'}</span></div>`;
     }).join('');
     // 학생 표: 점수 높은 순, 같으면 이름순
-    const rows = ps.slice().sort((a, b) => b.score - a.score || a.name.localeCompare(b.name, 'ko'));
-    $('tbody').innerHTML = rows.length ? rows.map(p => `<tr><td class="name">${esc(p.name)}</td><td>${p.done ? '완료' : `${p.answers.length} / ${Q.length}`}</td><td class="sc">${p.score}</td>${Q.map((_, i) => { const a = p.answers[i]; return `<td>${!a ? '<span class="d">·</span>' : a.ok ? '<span class="o">○</span>' : '<span class="x">×</span>'}</td>`; }).join('')}</tr>`).join('')
-      : `<tr><td colspan="${3 + Q.length}" class="empty">아직 입장한 학생이 없어요. QR을 화면에 띄워 주세요.</td></tr>`;
+    // 학생 표: 입장한 순서대로 (출석부처럼 자리가 바뀌지 않게)
+    const rows = ps.slice().sort((a, b) => (a.joinedAt || 0) - (b.joinedAt || 0));
+    $('tbody').innerHTML = rows.length ? rows.map(p => {
+      const online = p.done || (p.now - p.updatedAt) < 40000;
+      const stage = p.stage === 'done' ? '<span class="stage done">완료</span>' : p.stage === 'playing' ? `<span class="stage play">${p.at}번 푸는 중</span>` : '<span class="stage wait">입장 · 대기 중</span>';
+      const cells = Q.map((_, i) => {
+        const a = p.answers[i];
+        if (a) return `<td>${a.ok ? '<span class="o">○</span>' : '<span class="x">×</span>'}</td>`;
+        if (p.stage === 'playing' && p.at === i + 1) return '<td class="cur"><span class="cur-mark">…</span></td>';
+        return '<td><span class="d">·</span></td>';
+      }).join('');
+      return `<tr><td class="name${online ? '' : ' off'}"><span class="dot ${online ? 'on' : 'off'}" title="${online ? '접속 중' : '연결 끊김'}"></span>${esc(p.name)}</td><td>${stage}</td><td class="sc">${p.stage === 'joined' ? '–' : p.score}</td>${cells}</tr>`;
+    }).join('') : `<tr><td colspan="${3 + Q.length}" class="empty">아직 입장한 학생이 없어요. QR을 화면에 띄워 주세요.</td></tr>`;
   }
 
   async function loadRecent() {

@@ -16,12 +16,13 @@
 .code{font-size:44px;font-weight:800;letter-spacing:6px;text-align:center;color:var(--green);margin:4px 0}
 .join .url{font-size:12px;word-break:break-all;background:#f1f2ec;border-radius:8px;padding:8px 10px;text-align:center}
 .state{display:inline-block;font-size:12px;font-weight:700;border-radius:20px;padding:4px 10px;background:#e7efe9;color:var(--green)}.state.closed{background:#f6e3dc;color:#b0503a}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .stat{background:#f1f2ec;border-radius:10px;padding:14px}.stat b{display:block;font-size:30px;letter-spacing:-1px}.stat span{font-size:12px;color:var(--muted)}
 .qrate{margin:18px 0 6px;display:grid;gap:8px}
 .qrate-row{display:grid;grid-template-columns:150px 1fr 48px;gap:10px;align-items:center;font-size:13px}
-.qrate-row .bar{height:12px;background:#e3e5da;border-radius:6px;overflow:hidden}.qrate-row .bar i{display:block;height:100%;background:var(--green);transition:width .4s}
+.qrate-row .qbar{height:12px;background:#e3e5da;border-radius:6px;overflow:hidden}.qrate-row .qbar i{display:block;height:100%;background:var(--green);transition:width .4s}
 .qrate-row .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}.dot.on{background:#2f8f5b}.dot.off{background:#c4c7bc}td.off{color:var(--muted)}.stage{font-size:13px}.stage.wait{color:var(--muted)}.stage.play{color:#8a6a10;font-weight:700}.stage.done{color:var(--green);font-weight:700}td.cur{background:#fff3c4}.cur-mark{color:#8a6a10;font-weight:800}
 table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
 th,td{padding:10px 8px;border-top:1px solid var(--line);text-align:center}th{font-size:12px;color:var(--muted);font-weight:600}
 td.name,th.name{text-align:left;font-weight:600}td.sc{font-weight:800}
@@ -59,13 +60,14 @@ td.name,th.name{text-align:left;font-weight:600}td.sc{font-weight:800}
     <div class="eyebrow" id="roomCat"></div>
     <h1 id="roomTitle" style="font-size:24px">강의실 퀴즈</h1>
     <div class="stats" style="margin-top:14px">
-     <div class="stat"><b id="sJoin">0</b><span>입장</span></div>
+     <div class="stat"><b id="sJoin">0</b><span>입장 (대기 <i id="sWait" style="font-style:normal">0</i>)</span></div>
+     <div class="stat"><b id="sPlay">0</b><span>푸는 중</span></div>
      <div class="stat"><b id="sDone">0</b><span>다 푼 학생</span></div>
      <div class="stat"><b id="sAvg">–</b><span>평균 점수 (5점 만점)</span></div>
     </div>
     <div class="qrate" id="qrate"></div>
     <table><thead id="thead"></thead><tbody id="tbody"></tbody></table>
-    <p class="lead" style="font-size:12px;margin-top:10px">3초마다 자동으로 새로 고칩니다.</p>
+    <p class="lead" style="font-size:12px;margin-top:10px">3초마다 자동으로 새로 고칩니다. ● 초록 = 지금 접속 중, ● 회색 = 화면을 닫았거나 연결이 끊김(40초 넘게 소식 없음). 노란 칸 = 지금 보고 있는 문제.</p>
    </div>
   </div>
  </section>
