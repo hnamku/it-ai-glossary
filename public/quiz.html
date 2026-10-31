@@ -1,0 +1,88 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="AI·IT를 읽어드립니다 — 용어 퀴즈. 설명을 읽고 맞는 용어를 골라 보세요."><meta name="theme-color" content="#f5f3ec"><title>용어 퀴즈 — AI·IT를 읽어드립니다</title><link rel="stylesheet" href="/style.css">
+<style>
+.quiz-wrap{max-width:760px;margin:auto;padding:40px 24px 60px}
+.quiz-card{background:#fffef9;border:1px solid var(--line);border-radius:14px;padding:28px}
+.quiz-card+.quiz-card{margin-top:18px}
+.quiz-wrap h1{font-size:34px;letter-spacing:-1.5px;margin:10px 0 8px;line-height:1.3}
+.quiz-wrap .lead{color:var(--muted);font-size:14px;line-height:1.8;margin:0 0 6px}
+.q-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
+.q-row label{font-size:12px;color:var(--muted);display:block;margin-bottom:6px;font-weight:600}
+.q-btn{border:0;border-radius:10px;padding:14px 22px;font-size:15px;font-weight:700;background:var(--green);color:#fff}
+.q-btn.ghost{background:transparent;color:var(--green);border:1px solid var(--green)}
+.q-btn:focus-visible,.opt:focus-visible{outline:3px solid #27584355;outline-offset:2px}
+.q-actions{display:flex;gap:10px;flex-wrap:wrap}
+.qr-box{display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.qr-box canvas{width:168px;height:168px;background:#fff;border-radius:10px;border:1px solid var(--line);image-rendering:pixelated}
+.qr-box p{margin:0 0 10px;font-size:13px;line-height:1.7;color:var(--muted)}
+.qr-box .url{font-size:12px;word-break:break-all;color:var(--ink);background:#f1f2ec;border-radius:8px;padding:8px 10px;margin-bottom:12px}
+.small-btn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 12px;font-size:12px;color:var(--ink)}
+.q-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);margin-bottom:10px}
+.q-progress{height:5px;background:#e3e5da;border-radius:9px;overflow:hidden;margin-bottom:22px}
+.q-progress div{height:100%;background:var(--green);transition:width .3s}
+.q-ask{font-size:13px;font-weight:700;color:var(--green);margin:0 0 10px}
+.q-def{font-size:17px;line-height:1.85;margin:0 0 22px}
+.q-def mark{background:#fff3c4;color:var(--muted);border-radius:4px;padding:0 4px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:14px 16px;font-size:16px;font-weight:600;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--green)}
+.opt.right{border-color:var(--green);background:#e7efe9}
+.opt.wrong{border-color:#b0503a;background:#f6e3dc}
+.opt:disabled{cursor:default;color:var(--ink);opacity:1}.opt:disabled:not(.right):not(.wrong){color:var(--muted)}
+.feedback{margin:18px 0 0;font-size:14px;line-height:1.7;min-height:24px}
+.feedback b.ok{color:var(--green)}.feedback b.no{color:#b0503a}
+.score{font-size:56px;font-weight:800;letter-spacing:-2px;margin:6px 0}
+.score span{font-size:20px;color:var(--muted);font-weight:500}
+.wrong-list{list-style:none;padding:0;margin:16px 0 22px}
+.wrong-list li{border-top:1px solid var(--line);padding:12px 0;font-size:14px;line-height:1.6}
+.wrong-list a{color:var(--green);font-weight:700;text-decoration:none}
+@media (max-width:600px){.q-row{grid-template-columns:1fr}.qr-box{grid-template-columns:1fr;justify-items:start}.quiz-wrap h1{font-size:28px}.q-def{font-size:16px}}
+</style></head><body>
+<header><a href="/" class="brand">AI·IT를 읽어드립니다</a><a class="small" href="/">← 용어집으로</a></header>
+<main class="quiz-wrap">
+ <section id="setup">
+  <div class="quiz-card">
+   <div class="eyebrow">QUIZ</div>
+   <h1>설명을 읽고, 맞는 용어를 골라 보세요</h1>
+   <p class="lead">용어집의 정의에서 용어 이름을 가리고 문제를 냅니다. 보기 4개 중 하나를 고르면 바로 정답을 알려 드려요.</p>
+   <div class="q-row">
+    <div><label for="cat">분야</label><select id="cat"><option value="">전체 분야</option></select></div>
+    <div><label for="num">문제 수</label><select id="num"><option>5</option><option selected>10</option><option>15</option><option>20</option></select></div>
+   </div>
+   <div class="q-actions"><button class="q-btn" id="start">퀴즈 시작</button></div>
+  </div>
+  <div class="quiz-card">
+   <div class="qr-box">
+    <canvas id="qr" width="168" height="168" role="img" aria-label="퀴즈로 바로 가는 QR 코드"></canvas>
+    <div>
+     <div class="eyebrow">QR로 나눠 주기</div>
+     <p>휴대폰 카메라로 찍으면 위에서 고른 분야·문제 수의 퀴즈가 바로 시작됩니다. 강의 슬라이드나 유인물에 붙여 쓰세요.</p>
+     <div class="url" id="qrUrl"></div>
+     <div class="q-actions"><button class="small-btn" id="copy">링크 복사</button><button class="small-btn" id="save">QR 이미지 저장</button></div>
+    </div>
+   </div>
+  </div>
+ </section>
+ <section id="play" hidden>
+  <div class="quiz-card">
+   <div class="q-top"><span id="qCat"></span><span id="qNum"></span></div>
+   <div class="q-progress"><div id="qBar"></div></div>
+   <p class="q-ask">이 설명에 맞는 용어는?</p>
+   <p class="q-def" id="qDef"></p>
+   <div class="opts" id="opts"></div>
+   <p class="feedback" id="fb" aria-live="polite"></p>
+   <div class="q-actions"><button class="q-btn" id="next" hidden>다음 문제</button></div>
+  </div>
+ </section>
+ <section id="result" hidden>
+  <div class="quiz-card">
+   <div class="eyebrow">RESULT</div>
+   <div class="score" id="score"></div>
+   <p class="lead" id="msg"></p>
+   <ul class="wrong-list" id="wrong"></ul>
+   <div class="q-actions"><button class="q-btn" id="again">다시 풀기</button><button class="q-btn ghost" id="other">분야 바꾸기</button></div>
+  </div>
+ </section>
+</main>
+<footer class="site-credit">Provided by NoName Factory Inc.</footer>
+<script src="/qrcode.js"></script><script src="/quiz.js"></script>
+</body></html>
