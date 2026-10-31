@@ -93,7 +93,7 @@
 
   Promise.all([fetch('/api?op=status', { credentials: 'same-origin' }).then(r => r.json()), fetch('/api?op=terms').then(r => r.json())]).then(async ([st, d]) => {
     terms = d.terms; cats = d.categories;
-    for (const c of cats) { const n = terms.filter(t => t.categoryId === c.id).length; if (!n) continue; const o = document.createElement('option'); o.value = c.id; o.textContent = `${c.title} (${n})`; $('cat').append(o); }
+    // 분야 선택 없음: 항상 전체 용어에서 출제
     if (!st.authenticated) return show('login');
     const code = new URLSearchParams(location.search).get('room');
     if (code) { try { const r = await fetch('/api/room?op=room&code=' + encodeURIComponent(code)).then(r => r.json()); if (r.code) return openRoom(r); } catch {} }

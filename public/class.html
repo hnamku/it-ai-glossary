@@ -4,7 +4,7 @@
 .card{background:#fffef9;border:1px solid var(--line);border-radius:14px;padding:24px}
 .cls h1{font-size:30px;letter-spacing:-1.2px;margin:8px 0 6px}
 .lead{color:var(--muted);font-size:14px;line-height:1.8;margin:0}
-.row{display:grid;grid-template-columns:1.2fr 1fr auto;gap:14px;align-items:end;margin-top:20px}
+.row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:end;margin-top:20px}
 .row label{font-size:12px;color:var(--muted);display:block;margin-bottom:6px;font-weight:600}
 .btn{border:0;border-radius:10px;padding:14px 20px;font-size:15px;font-weight:700;background:var(--green);color:#fff;white-space:nowrap}
 .btn.ghost{background:#fff;color:var(--green);border:1px solid var(--green)}.btn.warn{background:#fff;color:#b0503a;border:1px solid #b0503a}
@@ -41,7 +41,7 @@ td.name,th.name{text-align:left;font-weight:600}td.sc{font-weight:800}
    <p class="lead">방을 만들면 QR과 방 코드가 나옵니다. 학생들은 QR을 찍고 이름을 적어 입장해 같은 5문제를 풀고, 점수는 이 화면에 실시간으로 올라옵니다.</p>
    <div class="row">
     <div><label for="title">퀴즈 이름 (선택)</label><input id="title" maxlength="40" placeholder="예: 3주차 복습 퀴즈"></div>
-    <div><label for="cat">분야</label><select id="cat"><option value="">전체 분야</option></select></div>
+    <input type="hidden" id="cat" value="">
     <button class="btn" id="create">방 만들기 (5문제)</button>
    </div>
    <div class="recent" id="recent"></div>

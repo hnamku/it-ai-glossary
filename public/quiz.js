@@ -162,15 +162,13 @@
   $('other').onclick = () => { show('setup'); drawQR(); };
   $('cat').onchange = $('num').onchange = drawQR;
   $('copy').onclick = async () => { try { await navigator.clipboard.writeText(quizUrl()); $('copy').textContent = '복사됨!'; } catch { $('copy').textContent = '복사 실패'; } setTimeout(() => $('copy').textContent = '링크 복사', 1500); };
-  $('save').onclick = () => { const a = document.createElement('a'); a.download = `quiz-qr${$('cat').value ? '-' + $('cat').value : ''}.png`; a.href = $('qr').toDataURL('image/png'); a.click(); };
+  $('save').onclick = () => { const a = document.createElement('a'); a.download = 'quiz-qr.png'; a.href = $('qr').toDataURL('image/png'); a.click(); };
 
   fetch('/api?op=terms').then(r => { if (!r.ok) throw Error(); return r.json(); }).then(d => {
     terms = d.terms; cats = d.categories;
-    const sel = $('cat');
-    for (const c of cats) { const n = terms.filter(t => t.categoryId === c.id).length; if (!n) continue; const o = document.createElement('option'); o.value = c.id; o.textContent = `${c.title} (${n})`; sel.append(o); }
+    // 분야 선택 없음: 항상 전체 용어에서 출제
     const p = new URLSearchParams(location.search);
     if (p.get('room')) return openRoom(p.get('room').toUpperCase());
-    if (p.get('c') && cats.some(c => c.id === p.get('c'))) sel.value = p.get('c');
     if (p.get('n') && [...$('num').options].some(o => o.value === p.get('n'))) $('num').value = p.get('n');
     drawQR();
     if (p.get('start') === '1') start();
