@@ -1255,3 +1255,33 @@ body{min-height:100vh;display:flex;flex-direction:column}body>header,body>main{w
 .chapter-section .chapter-heading{margin-bottom:22px}
 .chapter-section .chapter-heading h2{font-size:28px;letter-spacing:-1px;margin:10px 0 6px;outline:none}
 .chapter-section .chapter-heading p{margin:0}
+
+/* 88 프로그래밍 언어 */
+.mp svg .c88-l0{animation:c88-l0 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-l0{0%,3%{opacity:0;transform:translateX(-12px)}5%,100%{opacity:1;transform:none}}
+.mp svg .c88-h0{animation:c88-h0 14s infinite ease-in-out;}@keyframes c88-h0{0%,3%{opacity:0}4%,17%{opacity:1}18%,100%{opacity:0}}
+.mp svg .c88-l1{animation:c88-l1 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-l1{0%,18%{opacity:0;transform:translateX(-12px)}20%,100%{opacity:1;transform:none}}
+.mp svg .c88-h1{animation:c88-h1 14s infinite ease-in-out;}@keyframes c88-h1{0%,18%{opacity:0}19%,32%{opacity:1}33%,100%{opacity:0}}
+.mp svg .c88-l2{animation:c88-l2 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-l2{0%,33%{opacity:0;transform:translateX(-12px)}35%,100%{opacity:1;transform:none}}
+.mp svg .c88-h2{animation:c88-h2 14s infinite ease-in-out;}@keyframes c88-h2{0%,33%{opacity:0}34%,47%{opacity:1}48%,100%{opacity:0}}
+.mp svg .c88-l3{animation:c88-l3 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-l3{0%,48%{opacity:0;transform:translateX(-12px)}50%,100%{opacity:1;transform:none}}
+.mp svg .c88-h3{animation:c88-h3 14s infinite ease-in-out;}@keyframes c88-h3{0%,48%{opacity:0}49%,62%{opacity:1}63%,100%{opacity:0}}
+.mp svg .c88-l4{animation:c88-l4 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-l4{0%,63%{opacity:0;transform:translateX(-12px)}65%,100%{opacity:1;transform:none}}
+.mp svg .c88-h4{animation:c88-h4 14s infinite ease-in-out;}@keyframes c88-h4{0%,63%{opacity:0}64%,77%{opacity:1}78%,100%{opacity:0}}
+.mp svg .c88-pan{animation:c88-pan 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-pan{0%,0%{opacity:0;transform:scale(.6)}2%,100%{opacity:1;transform:none}}
+.mp svg .c88-r0{animation:c88-r0 14s infinite ease-in-out;}@keyframes c88-r0{0%,3%{opacity:0}4%,17%{opacity:1}18%,100%{opacity:0}}
+.mp svg .c88-v{animation:c88-v 14s infinite cubic-bezier(.5,0,.4,1.4);}@keyframes c88-v{0%,6%{opacity:0;transform:translateY(-34px)}7%{opacity:1}10%,100%{opacity:1;transform:none}}
+.mp svg .c88-r1{animation:c88-r1 14s infinite ease-in-out;}@keyframes c88-r1{0%,18%{opacity:0}19%,32%{opacity:1}33%,100%{opacity:0}}
+.mp svg .c88-fo{animation:c88-fo 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-fo{0%,25%{opacity:0;transform:scale(.6)}27%,100%{opacity:1;transform:none}}
+.mp svg .c88-fb{animation:c88-fb 14s infinite ease-in-out;}@keyframes c88-fb{0%,22%{transform:scale(1)}23%{transform:scale(.9)}24.5%,100%{transform:scale(1)}}
+.mp svg .c88-r2{animation:c88-r2 14s infinite ease-in-out;}@keyframes c88-r2{0%,33%{opacity:0}34%,47%{opacity:1}48%,100%{opacity:0}}
+.mp svg .c88-cy{animation:c88-cy 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-cy{0%,39%{opacity:0;transform:scale(.6)}41%,100%{opacity:1;transform:none}}
+.mp svg .c88-cn{animation:c88-cn 14s infinite ease-in-out;}@keyframes c88-cn{0%,100%{opacity:.45}}
+.mp svg .c88-r3{animation:c88-r3 14s infinite ease-in-out;}@keyframes c88-r3{0%,48%{opacity:0}49%,62%{opacity:1}63%,100%{opacity:0}}
+.mp svg .c88-k0{animation:c88-k0 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-k0{0%,51%{opacity:0;transform:scale(.6)}53%,100%{opacity:1;transform:none}}
+.mp svg .c88-k1{animation:c88-k1 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-k1{0%,54%{opacity:0;transform:scale(.6)}56%,100%{opacity:1;transform:none}}
+.mp svg .c88-k2{animation:c88-k2 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-k2{0%,57%{opacity:0;transform:scale(.6)}59%,100%{opacity:1;transform:none}}
+.mp svg .c88-r4{animation:c88-r4 14s infinite ease-in-out;}@keyframes c88-r4{0%,63%{opacity:0}64%,77%{opacity:1}78%,100%{opacity:0}}
+.mp svg .c88-lb{animation:c88-lb 14s infinite ease-in-out;}@keyframes c88-lb{0%,64%{opacity:0;transform:translateY(-22px)}66%{opacity:1}69%,100%{opacity:1;transform:none}}
+.mp svg .c88-ok{animation:c88-ok 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-ok{0%,71%{opacity:0;transform:scale(.6)}73%,100%{opacity:1;transform:none}}
+.mp svg .c88-fin{animation:c88-fin 14s infinite ease-in-out;}@keyframes c88-fin{0%,78%{opacity:0}79%,100%{opacity:1}101%,100%{opacity:0}}
+.mp svg .c88-lang{animation:c88-lang 14s infinite cubic-bezier(.3,1.3,.5,1);}@keyframes c88-lang{0%,80%{opacity:0;transform:translateY(6px)}82%,100%{opacity:1;transform:none}}
