@@ -3,10 +3,11 @@
   const $ = id => document.getElementById(id);
   const H = { 'content-type': 'application/json', 'x-malteut-admin': '1' };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  let terms = [], cats = [], room = null, timer = null;
+  let terms = [], cats = [], bank = [], room = null, timer = null;
 
   const show = id => { for (const s of ['login', 'make', 'room']) $(s).hidden = s !== id; };
-  const termName = id => terms.find(t => t.id === id)?.term || '(삭제된 용어)';
+  // 문제 id → 표시 이름: 새 방은 문제 은행 id('92-3'), 예전 방은 용어 id(숫자)
+  const termName = id => { const tid = typeof id === 'number' ? id : bank.find(q => q.id === id)?.termId; return terms.find(t => t.id === tid)?.term || '(삭제된 용어)'; };
   const catName = id => id ? (cats.find(c => c.id === id)?.title || '') : '전체 분야';
 
   function drawQR(url) {
@@ -91,8 +92,8 @@
   $('newRoom').onclick = () => { clearInterval(timer); room = null; history.replaceState(null, '', '/class'); show('make'); loadRecent(); };
   document.addEventListener('visibilitychange', refresh);
 
-  Promise.all([fetch('/api?op=status', { credentials: 'same-origin' }).then(r => r.json()), fetch('/api?op=terms').then(r => r.json())]).then(async ([st, d]) => {
-    terms = d.terms; cats = d.categories;
+  Promise.all([fetch('/api?op=status', { credentials: 'same-origin' }).then(r => r.json()), fetch('/api?op=terms').then(r => r.json()), fetch('/quiz-bank.json').then(r => r.json())]).then(async ([st, d, qb]) => {
+    terms = d.terms; cats = d.categories; bank = qb.questions;
     // 분야 선택 없음: 항상 전체 용어에서 출제
     if (!st.authenticated) return show('login');
     const code = new URLSearchParams(location.search).get('room');

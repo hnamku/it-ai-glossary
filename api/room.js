@@ -3,6 +3,10 @@
 import {get,put,list} from '@vercel/blob';
 import {createHmac,timingSafeEqual,randomInt} from 'node:crypto';
 import {normalize} from '../lib/categories.js';
+import {readFileSync} from 'node:fs';
+
+// 문제 은행(용어당 5문제). 보기 0번이 정답이고, 학생 화면에서 보기 순서를 섞어 보여 준 뒤 은행 기준 번호(pick)를 보냅니다.
+const BANK = JSON.parse(readFileSync(new URL('../public/quiz-bank.json', import.meta.url), 'utf8')).questions;
 
 const STATE = process.env.GLOSSARY_STATE_PATH || 'glossary-state.json';
 const QUESTIONS = 5;
@@ -95,8 +99,11 @@ export default async function handler(req, res) {
       const answers = Array.isArray(body.answers) ? body.answers : [];
       if (answers.length > meta.questionIds.length) throw fail(400, '잘못된 답안입니다.');
       const checked = answers.map((a, i) => {
-        if (Number(a?.id) !== meta.questionIds[i] || !Number.isSafeInteger(Number(a?.pick))) throw fail(400, '잘못된 답안입니다.');
-        return {id: meta.questionIds[i], pick: Number(a.pick), ok: Number(a.pick) === meta.questionIds[i]};
+        const qid = meta.questionIds[i], legacy = typeof qid === 'number';   // 예전 방: 용어 id로 출제, 새 방: 문제 은행 id
+        if (String(a?.id) !== String(qid) || !Number.isSafeInteger(Number(a?.pick))) throw fail(400, '잘못된 답안입니다.');
+        const pick = Number(a.pick);
+        if (!legacy && (pick < 0 || pick > 3)) throw fail(400, '잘못된 답안입니다.');
+        return {id: qid, pick, ok: legacy ? pick === qid : pick === 0};
       });
       const path = `rooms/${code}/p/${pid}.json`, prev = await readJson(path);
       // 이미 낸 답은 바꿀 수 없음
@@ -117,15 +124,19 @@ export default async function handler(req, res) {
     if (op === 'create') {                                  // 교수자: 방 만들기
       const categoryId = String(body.categoryId || '');
       const title = String(body.title || '').trim().slice(0, 40);
-      const pool = state.terms.filter(t => !categoryId || t.categoryId === categoryId);
-      if (!pool.length) throw fail(400, '이 분야에는 용어가 없습니다.');
+      const termIds = new Set(state.terms.filter(t => !categoryId || t.categoryId === categoryId).map(t => t.id));
+      const pool = BANK.filter(q => termIds.has(q.termId));
+      if (!pool.length) throw fail(400, '이 분야에는 문제가 없습니다.');
       let code;
       for (let i = 0; i < 8; i++) {
         const c = Array.from({length: 5}, () => CODE_CHARS[randomInt(CODE_CHARS.length)]).join('');
         if (!(await readJson(`rooms/${c}/meta.json`))) { code = c; break; }
       }
       if (!code) throw fail(503, '잠시 후 다시 시도해 주세요.');
-      const meta = {code, title, categoryId, questionIds: shuffle(pool).slice(0, QUESTIONS).map(t => t.id), open: true, createdAt: Date.now()};
+      // 용어가 겹치지 않게: 용어를 섞어 고르고, 용어마다 문제 은행에서 한 문제씩
+      const seen = new Set(), questionIds = [];
+      for (const q of shuffle(pool)) { if (questionIds.length >= QUESTIONS) break; if (!seen.has(q.termId)) { seen.add(q.termId); questionIds.push(q.id); } }
+      const meta = {code, title, categoryId, questionIds, open: true, createdAt: Date.now()};
       await writeJson(`rooms/${code}/meta.json`, meta);
       return res.status(200).json(publicMeta(meta));
     }
